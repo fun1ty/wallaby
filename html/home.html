@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 구글 api : client id -->
+    <meta
+      name="google-signin-client_id"
+      content="60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com"
+    />
+
+    <title>메인 홈 페이지</title>
+  </head>
+  <body>
+    <!-- 로그인 박스 -->
+    <div id="my_signIn"></div>
+
+    <script>
+      function onSuccess(googleUser) {
+        console.log("Logged in as: " + googleUser.getBasicProfile().getName());
+      }
+      function onFailure(error) {
+        console.log(error);
+      }
+      function renderButton() {
+        gapi.signin2.render("my_signIn", {
+          scope: "profile email",
+          width: 300,
+          height: 50,
+          longtitle: true,
+          theme: "white",
+          onsuccess: onSuccess,
+          onfailure: onFailure,
+        });
+      }
+    </script>
+
+    <script
+      src="https://apis.google.com/js/platform.js?onload=renderButton"
+      async
+      defer
+    ></script>
+  </body>
+</html>
