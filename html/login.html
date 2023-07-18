@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- google api : client id -->
+    <meta
+      name="google-signin-client_id"
+      content="60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com"
+    />
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 로그인 박스 구현
+
+      function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+      }
+      window.onload = function () {
+        // google.accounts.id.initialize 메소드
+        google.accounts.id.initialize({
+          client_id:
+            "60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com",
+          callback: handleCredentialResponse,
+        });
+
+        // google.accounts.id.renderButton 메소드
+        google.accounts.id.renderButton(
+          document.getElementById("buttonDiv"),
+
+          // customization attributes
+          { type: "icon", theme: "outline", size: "large", width: 100 }
+        );
+        google.accounts.id.prompt();
+      };
+
+      //
+      //
+
+      // google.accounts.id.storeCredential 메소드
+      function onSignIn() {
+        let cred = {
+          id: "",
+          password: "",
+        };
+        google.accounts.id.storeCredential(cred);
+      }
+
+      //  google.accounts.id.disableAutoSelect 메소드
+      function onSignout() {
+        google.accounts.id.disableAutoSelect();
+      }
+
+      // google.accounts.id.cancel 메소드
+      function onNextButtonClicked() {
+        google.accounts.id.cancel();
+        showPasswordPage();
+      }
+
+      window.onGoogleLibraryLoad = () => {
+        google.accounts.id.initialize({});
+        google.accounts.id.prompt();
+      };
+    </script>
+    <div id="buttonDiv"></div>
+  </body>
+</html>
