@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/common.css" />
     <!-- JavaScript Bundle with Popper -->
     <!-- 부트스트랩(아이콘용) -->
     <script
@@ -30,22 +30,25 @@
     ></script>
     <title>왈라비</title>
   </head>
+  <!-- 헤더 불러오기 -->
+  <script>
+    $(document).ready(function () {
+      $("#headers").load("../html/header.html");
+    });
+  </script>
   <body>
-    <head>
-      <div id="headers">왈라비</div>
-    </head>
-    <!-- 헤더 불러오기 -->
-    <script>
-      $(document).ready(function () {
-        $("#headers").load("../html/header.html");
-      });
-    </script>
-
-    <!-- <ul>
-        <li>카테고리</li>
-        <li>로그인</li>
-        <li>회원가입</li>
-    </ul> -->
+    <header>
+      <div>왈라비</div>
+    </header>
+    <ul class="index_ul">
+      <li>
+        <a href="#" onclick="location.href='./html/hot_board.html'"
+          >오늘의 왈라비</a
+        >
+      </li>
+      <li>로그인</li>
+      <li>회원가입</li>
+    </ul>
 
     <img
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgl0perrx4tl3J8Ann9Tnr772iQrcsd7VUUQ&usqp=CAU"
@@ -60,20 +63,5 @@
         $("#footer").load("../html/footer.html");
       });
     </script>
-    <!-- <nav class="nav">
-      <ul>
-        <li>
-          <a href="like_button"
-            ><i class="bi bi-arrow-through-heart"><br />좋아요</i>
-          </a>
-        </li>
-        <li>
-          <a href="myPage"
-            ><i class="bi bi-file-person"><br />MY PAGE</i></a
-          >
-        </li>
-      </ul>
-    </nav> -->
-    <script></script>
   </body>
 </html>
