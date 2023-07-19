@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/common.css" />
     <!-- JavaScript Bundle with Popper -->
     <!-- 부트스트랩(아이콘용) -->
     <script
@@ -22,30 +22,48 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
     <title>왈라비</title>
   </head>
+  <!-- 헤더 불러오기 -->
+  <script>
+    $(document).ready(function () {
+      $("#headers").load("../html/header.html");
+    });
+  </script>
   <body>
-    <head>
+    <header>
       <div>왈라비</div>
-    </head>
-    <ul>
-        <li>카테고리</li>
-        <li>로그인</li>
-        <li>회원가입</li>
+    </header>
+    <ul class="index_ul">
+      <li>
+        <a href="#" onclick="location.href='./html/hot_board.html'"
+          >오늘의 왈라비</a
+        >
+      </li>
+      <li>로그인</li>
+      <li>회원가입</li>
     </ul>
- 
+
     <img
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgl0perrx4tl3J8Ann9Tnr772iQrcsd7VUUQ&usqp=CAU"
       alt=""
     />
-    <div class="explain">서비스 설명</div><br>
-    -------네비영역------- 
-    <nav class="nav">
-      <ul>
-        <li><a href="like_button"><i class="bi bi-arrow-through-heart"><br>좋아요</i></li></a> 
-        <li><a href="myPage"><i class="bi bi-file-person">MY</i></a></li>
-      </ul>
-    </nav>
-    <script src="./Js/index.js"></script>
+
+    <div class="explain">서비스 설명</div>
+    <br />
+    -------네비영역-------
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html");
+      });
+    </script>
+>>>>>>> develop
   </body>
 </html>
