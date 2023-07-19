@@ -51,9 +51,28 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-//localstorage 에 게시글 저장하기
-let num = 0;
+//localstorage 에 게시글 저장하고 board.html에 전송
+
 $("#submit_btn").click(function () {
-  localStorage.setItem(`txt${num + 1}`, $("#textarea").val());
+  event.preventDefault();
+  localStorage.clear();
+  localStorage.setItem("txt", $("#textarea").val());
   console.log(window.localStorage);
+  let txt = localStorage.getItem("txt");
+
+  $.ajax({
+    url: "../html/board.html",
+    dataType: "html",
+    type: "GET",
+    data: { txt: txt },
+    cache: false, //캐시데이터
+    success: function (data) {
+      alert("게시글 등록 완료");
+      console.log(data);
+      location.href = "../html/board.html";
+    },
+    error: function (error) {
+      alert("실패했습니다.");
+    },
+  });
 });

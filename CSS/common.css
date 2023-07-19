@@ -9,3 +9,32 @@
 * {
   font-family: "Dovemayo_gothic", sans-serif;
 }
+
+header {
+  margin: 2%;
+}
+ul {
+  list-style-type: none;
+}
+
+ul > li {
+  padding: 1%;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.index_ul,
+.nav > ul {
+  display: flex;
+}
+
+.nav > li {
+  padding: 2% 0;
+}
+
+.explain {
+  margin: 2%;
+}
