@@ -1,0 +1,27 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+ul > li {
+  padding: 40px;
+}
+
+.nav > li {
+  padding: 2% 0;
+}
+
+#wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+nav {
+  /* border-top: 1px solid gray; */
+  height: 100px;
+  justify-content: space-around;
+}
