@@ -9,32 +9,16 @@
 * {
   font-family: "Dovemayo_gothic", sans-serif;
 }
-
-body {
-  height: 100%;
-}
 header {
   margin: 2%;
 }
 ul {
   list-style-type: none;
+  display: flex;
 }
 
 ul > li {
   padding: 1%;
-}
-
-button {
-  all: unset;
-  cursor: pointer;
-}
-footer {
-  position: relative;
-  transform: translateY(-100%);
-}
-
-.index_ul {
-  display: flex;
 }
 
 .nav > li {
