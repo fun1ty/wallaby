@@ -156,18 +156,18 @@ console.log(settTime);
 
 //localstorage 에 게시글 저장하고 board.html에 전송
 
-$("#submitButton").click(function () {
+$(".submit").click(function () {
   event.preventDefault();
   // const editor = document.getElementById("editor");
   // const content = editor.innerHTML;
   // 이제 이 content를 서버로 전송하거나 다른 처리를 수행할 수 있습니다.
   console.log(content);
   // 작성글 추가
-  let txt = $("#editor").val();
+  let txt = $("#textarea").val();
   console.log(window.localStorage);
   if (txt.trim() !== "") {
     addPost(txt);
-    $("#editor").val("");
+    $("#textarea").val("");
   }
   alert("게시글 등록 완료");
 });
@@ -178,7 +178,7 @@ function addPost(content) {
   let post = {
     id: postId,
     content: content,
-    img: "",
+    // img: "",
   };
   let posts = getPosts();
   posts.push(post);
