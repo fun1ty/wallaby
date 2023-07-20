@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/footer.css" />
     <!-- JavaScript Bundle with Popper -->
     <!-- 부트스트랩(아이콘용) -->
     <script
@@ -28,16 +29,16 @@
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+      integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+      crossorigin="anonymous"
+    ></script>
     <title>왈라비</title>
   </head>
   <!-- 헤더 불러오기 -->
   <div id="headers"></div>
-  <script>
-    $(document).ready(function () {
-      $("#headers").load("../html/header.html");
-    });
-    console.log("dfs");
-  </script>
+
   <body>
     <header>
       <div>왈라비</div>
@@ -62,9 +63,10 @@
     <div id="footer"></div>
     <script>
       $(document).ready(function () {
-        $("#footer").load("../html/footer.html");
+        $("#headers").load("./html/header.html");
+        $("#footer").load("./html/footer.html");
       });
     </script>
-    -------네비영역------- >>>>>>> develop
+    >>>>>>> develop
   </body>
 </html>
