@@ -67,7 +67,7 @@ img {
   z-index: 2;
 }
 
-.submitButton {
+.submit {
   color: grey;
   font-weight: bold;
   font-size: 17px;
@@ -75,7 +75,6 @@ img {
 }
 
 .post {
-  background-color: #f2f2f2;
   padding: 10px;
   margin-bottom: 10px;
 }
