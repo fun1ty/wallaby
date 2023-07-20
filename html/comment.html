@@ -3,16 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
     <link rel="stylesheet" href="../CSS/comment.css" />
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>댓글 기능</title>
   </head>
   <body>
-    <div id="commentBox">
-      <input type="text" class="username" placeholder="username" />
-      <input type="text" class="comment" placeholder="comment" />
-      <button>입력</button>
-    </div>
+  <section class="article_wrap">
+    <ul class="comment_list">
+      <!-- <li>
+        <div class="user_desc">
+          <b>team5</b>
+          <span>우와 멋지다!!</span>
+        </div>
+        <button class="heart_icon"><i class="bi bi-suit-heart"> </i></button>
+      </li>
+      <li>
+        <div class="user_desc">
+          <b>bbyo_</b>
+          <span>🥰</span>
+        </div>
+        <button class="heart_icon"><i class="bi bi-suit-heart"> </i></button>
+      </li> -->
+    </ul>
+  </section>
+  <section class="comment_wrap">
+    <button class="emoji">
+      <i class="bi bi-emoji-smile"></i>
+    </button>
+    <input
+    id="comment_input"
+    type="text"
+    placeholder="댓글 달기..."
+    />
+    <button class="comment_btn">게시</button>
+    <!-- jquery -->
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
