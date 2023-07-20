@@ -1,0 +1,26 @@
+li {
+  list-style: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  /* border-color: black; */
+}
+
+#post_comment_input {
+  border: none;
+}
+
+/* 
+.comment_wrap {
+  border: 1px solid black;
+}
+
+.comment_list {
+  border: 1px solid black;
+}
+
+li {
+  border: 1px solid black;
+} */
