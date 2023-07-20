@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link rel="stylesheet" href="./login.html" />
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>마이 프로필 수정</title>
 
     <style>
-      @font-face {
-        font-family: "Dovemayo_gothic";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
-          format("woff2");
-        font-weight: normal;
-        font-style: normal;
-      }
-
       #root {
         width: 100%;
         margin: 0 auto;
@@ -98,6 +104,11 @@
         border-radius: 100px;
       }
 
+      #profile {
+        margin-top: 30px;
+        text-align: center;
+      }
+
       /**/
 
       /*
@@ -129,7 +140,7 @@
     <!--  -->
 
     <div id="root">
-      <h2 class="title">Profile</h2>
+      <h2 class="title">My Profile</h2>
       <hr />
       <div class="contents">
         <!-- 이미지 -->
@@ -227,7 +238,13 @@
             accept="image/png, image/jpeg, image/jpg"
           />
         </div>
+
+        <!-- 내 정보 -->
       </div>
+      <p id="profile">
+        이름 : <br />
+        이메일 :
+      </p>
     </div>
 
     <script>
@@ -298,6 +315,32 @@
       }
 
       const dropFile = new DropFile("drop_file", "files");
+
+      // 내 구글 계정 정보 로딩 ..미완성 ,, 하는 중 입니다
+
+      function myGoogle() {
+        /*
+        const config = {
+          headers: {
+            Authorization: `${localStorage.getItem("token")}`,
+            // localStorage에 token이 저장되어 있는지 확인하기
+          },
+        };
+        */
+        let get_token = JSON.parse(localStorage.getItem("token"));
+        console.log("get id token : ", get_token);
+
+        document.getElementById("profile").innerHTML = `
+        <h3> 이름 : ${user.name} <br>
+            <h3> E-mail : ${user.email}`;
+      }
+    </script>
+
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html");
+      });
     </script>
   </body>
 </html>

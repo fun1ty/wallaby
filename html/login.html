@@ -4,70 +4,92 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/login.css" />
 
-    <!-- google api : client id -->
-    <meta
-      name="google-signin-client_id"
-      content="60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com"
-    />
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <title>로그인 화면 테스트</title>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-    <title>Document</title>
   </head>
-  <body>
+
+  <script>
+    function handleCredentialResponse(response) {
+      console.log("JWT ID token: " + response);
+
+      if (response.credential) {
+        let jwt = response.credential;
+        let user = JSON.parse(atob(jwt.split(".")[1]));
+        console.log(user);
+
+        let set_token = localStorage.setItem("token", user);
+        console.log("set id token : ", user);
+
+        document.getElementById("profile").innerHTML = `
+        
+        <h2> name : ${user.name}<br>
+            <h2>E-mail : ${user.email}<br>
+                <img class="mypicture" src="${user.picture}"/><br>`;
+
+        document.getElementById("logout_button").style.display = "block";
+        document.getElementById("buttonDiv").style.display = "none";
+      }
+    }
+
+    function handleLogout() {
+      google.accounts.id.disableAutoSelect();
+      localStorage.removeItem("token");
+      google.accounts.id.prompt();
+      document.getElementById("profile").innerHTML = "";
+      document.getElementById("logout_button").style.display = "none";
+    }
+
+    function init() {
+      google.accounts.id.initialize({
+        client_id:
+          "60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com",
+        auto_select: true,
+        callback: handleCredentialResponse,
+      });
+
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+
+        // customization attributes
+        { theme: "outline", size: "large", width: 100 }
+      );
+
+      google.accounts.id.prompt();
+    }
+  </script>
+
+  <body onload="init()">
+    <div class="container" id="container">
+      <img
+        style="width: 80px; height: 80px"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgl0perrx4tl3J8Ann9Tnr772iQrcsd7VUUQ&usqp=CAU"
+        alt="왈라비아이콘"
+      />
+      <h3>왈라비에 오신 것을 환영합니다!</h3>
+      <div id="buttonDiv"></div>
+
+      <p id="profile"></p>
+      <button id="logout_button" onclick="handleLogout()" style="display: none">
+        Logout
+      </button>
+    </div>
+
+    <div id="footer"></div>
     <script>
-      // 로그인 박스 구현
-
-      function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-      }
-      window.onload = function () {
-        // google.accounts.id.initialize 메소드
-        google.accounts.id.initialize({
-          client_id:
-            "60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com",
-          callback: handleCredentialResponse,
-        });
-
-        // google.accounts.id.renderButton 메소드
-        google.accounts.id.renderButton(
-          document.getElementById("buttonDiv"),
-
-          // customization attributes
-          { type: "icon", theme: "outline", size: "large", width: 100 }
-        );
-        google.accounts.id.prompt();
-      };
-
-      //
-      //
-
-      // google.accounts.id.storeCredential 메소드
-      function onSignIn() {
-        let cred = {
-          id: "",
-          password: "",
-        };
-        google.accounts.id.storeCredential(cred);
-      }
-
-      //  google.accounts.id.disableAutoSelect 메소드
-      function onSignout() {
-        google.accounts.id.disableAutoSelect();
-      }
-
-      // google.accounts.id.cancel 메소드
-      function onNextButtonClicked() {
-        google.accounts.id.cancel();
-        showPasswordPage();
-      }
-
-      window.onGoogleLibraryLoad = () => {
-        google.accounts.id.initialize({});
-        google.accounts.id.prompt();
-      };
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html");
+      });
     </script>
-    <div id="buttonDiv"></div>
   </body>
 </html>
