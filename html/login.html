@@ -27,6 +27,9 @@
         let user = JSON.parse(atob(jwt.split(".")[1]));
         console.log(user);
 
+        let set_token = localStorage.setItem("token", user);
+        console.log("set id token : ", user);
+
         document.getElementById("profile").innerHTML = `
         
         <h2> name : ${user.name}<br>
@@ -40,6 +43,7 @@
 
     function handleLogout() {
       google.accounts.id.disableAutoSelect();
+      localStorage.removeItem("token");
       google.accounts.id.prompt();
       document.getElementById("profile").innerHTML = "";
       document.getElementById("logout_button").style.display = "none";
@@ -79,5 +83,12 @@
         Logout
       </button>
     </div>
+
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html");
+      });
+    </script>
   </body>
 </html>
