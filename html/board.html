@@ -18,12 +18,20 @@
     <title>board</title>
   </head>
   <body>
+    <div id="headers"></div>
     <!-- 삭제버튼 추가해야함 -->
     <div class="container">
       <div class="board">
-        <ul class="board_ul"></ul>
+        <ul id="board_ul"></ul>
       </div>
     </div>
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#headers").load("../html/header.html");
+        $("#footer").load("../html/footer.html");
+      });
+    </script>
     <script src="../Js/board.js"></script>
   </body>
 </html>
