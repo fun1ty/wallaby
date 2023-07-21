@@ -6,31 +6,38 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../CSS/comment.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
     <title>댓글 기능</title>
   </head>
   <body>
-  <section class="article_wrap">
-    <ul class="comment_list">
-    </ul>
-  </section>
-  <section class="comment_wrap">
-    <button class="emoji">
-      <i class="bi bi-emoji-smile"></i>
-    </button>
-    <input
-    id="comment_input"
-    type="text"
-    placeholder="댓글 달기..."
-    />
-    <button class="comment_btn">게시</button>
-    <!-- jquery -->
+    <section class="article_wrap">
+      <ul class="comment_list">
+        <li>
+          <div class="user_desc">
+            <b>bbyo</b>
+            <span>예시</span>
+          </div>
+          <div><div></div></div>
+        </li>
+      </ul>
+    </section>
+    <section id="comment_wrap">
+      <button class="emoji">
+        <i class="bi bi-emoji-smile"></i>
+      </button>
+      <input id="comment_input" type="text" placeholder="댓글 달기..." />
+      <button class="comment_btn">게시</button>
+      <!-- jquery -->
+    </section>
+    <div id="commentList"></div>
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
       crossorigin="anonymous"
     ></script>
     <script src="../Js/comment.js"></script>
-
   </body>
 </html>

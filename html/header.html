@@ -83,26 +83,6 @@
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
-
-    .btn-bd-primary {
-      --bd-violet-bg: #712cf9;
-      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-      --bs-btn-font-weight: 600;
-      --bs-btn-color: var(--bs-white);
-      --bs-btn-bg: var(--bd-violet-bg);
-      --bs-btn-border-color: var(--bd-violet-bg);
-      --bs-btn-hover-color: var(--bs-white);
-      --bs-btn-hover-bg: #6528e0;
-      --bs-btn-hover-border-color: #6528e0;
-      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-      --bs-btn-active-color: var(--bs-btn-hover-color);
-      --bs-btn-active-bg: #5a23c8;
-      --bs-btn-active-border-color: #5a23c8;
-    }
-    .bd-mode-toggle {
-      z-index: 1500;
-    }
   </style>
 
   <!-- Custom styles for this template -->
@@ -132,75 +112,6 @@
       />
     </symbol>
   </svg>
-
-  <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button
-      class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-      id="bd-theme"
-      type="button"
-      aria-expanded="false"
-      data-bs-toggle="dropdown"
-      aria-label="Toggle theme (auto)"
-    >
-      <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-        <use href="#circle-half"></use>
-      </svg>
-      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul
-      class="dropdown-menu dropdown-menu-end shadow"
-      aria-labelledby="bd-theme-text"
-    >
-      <li>
-        <button
-          type="button"
-          class="dropdown-item d-flex align-items-center"
-          data-bs-theme-value="light"
-          aria-pressed="false"
-        >
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-            <use href="#sun-fill"></use>
-          </svg>
-          Light
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="dropdown-item d-flex align-items-center"
-          data-bs-theme-value="dark"
-          aria-pressed="false"
-        >
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-            <use href="#moon-stars-fill"></use>
-          </svg>
-          Dark
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="dropdown-item d-flex align-items-center active"
-          data-bs-theme-value="auto"
-          aria-pressed="true"
-        >
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-            <use href="#circle-half"></use>
-          </svg>
-          Auto
-          <svg class="bi ms-auto d-none" width="1em" height="1em">
-            <use href="#check2"></use>
-          </svg>
-        </button>
-      </li>
-    </ul>
-  </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -255,7 +166,7 @@
             class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"
           >
             <img
-              src="https://plasknew.s3.ap-northeast-2.amazonaws.com/dhdhk.PNG"
+              src="../CSS/dhdhk.PNG"
               alt="왈라비"
               style="padding-right: 10px"
             />
@@ -268,7 +179,7 @@
               <a href="#" class="nav-link px-2 link-secondary">카테고리</a>
             </li>
             <li>
-
+              <a href="" class="nav-link px-2 link-body-emphasis">로그인</a>
             </li>
             <li>
               <a
@@ -305,7 +216,7 @@
             </a>
             <ul class="dropdown-menu text-small">
               <li>
-
+                <a class="dropdown-item" href="../html/mypage.html"
                   >마이페이지</a
                 >
               </li>
