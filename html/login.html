@@ -19,55 +19,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
 
-  <script>
-    function handleCredentialResponse(response) {
-      console.log("JWT ID token: " + response);
-
-      if (response.credential) {
-        let jwt = response.credential;
-        let user = JSON.parse(atob(jwt.split(".")[1]));
-        console.log(user);
-
-        let set_token = localStorage.setItem("token", user);
-        console.log("set id token : ", user);
-
-        document.getElementById("profile").innerHTML = `
-        
-        <h2> name : ${user.name}<br>
-            <h2>E-mail : ${user.email}<br>
-                <img class="mypicture" src="${user.picture}"/><br>`;
-
-        document.getElementById("logout_button").style.display = "block";
-        document.getElementById("buttonDiv").style.display = "none";
-      }
-    }
-
-    function handleLogout() {
-      google.accounts.id.disableAutoSelect();
-      localStorage.removeItem("token");
-      google.accounts.id.prompt();
-      document.getElementById("profile").innerHTML = "";
-      document.getElementById("logout_button").style.display = "none";
-    }
-
-    function init() {
-      google.accounts.id.initialize({
-        client_id:
-          "60173758193-md5dvv304s4tkenvv8mfii77tl4uu9cm.apps.googleusercontent.com",
-        auto_select: true,
-        callback: handleCredentialResponse,
-      });
-
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-
-        // customization attributes
-        { theme: "outline", size: "large", width: 100 }
-      );
-
-      google.accounts.id.prompt();
-    }
-  </script>
+  <script type="text/javascript" src="../Js/login.js"></script>
 
   <body onload="init()">
     <div class="container" id="container">

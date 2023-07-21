@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./login.html" />
     <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/profile.css" />
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -18,125 +19,16 @@
       crossorigin="anonymous"
     ></script>
 
+    <script type="text/javascript" src="../Js/login.js"></script>
+
     <title>마이 프로필 수정</title>
 
-    <style>
-      #root {
-        width: 100%;
-        margin: 0 auto;
-        max-width: 800px;
-      }
-
-      .title {
-        text-align: center;
-        font-family: "Dovemayo_gothic";
-      }
-
-      .contents {
-        display: flex;
-        flex-direction: row;
-        margin-top: 30px;
-      }
-
-      /* 이미지 업로드 버튼*/
-      .contents .upload_box .file_label {
-        margin-top: 20px;
-        background-color: black;
-        color: white;
-        text-align: center;
-        padding: 10px 20px;
-        width: 20%;
-        border-radius: 10px;
-        cursor: pointer;
-        font-family: "Dovemayo_gothic";
-      }
-
-      .contents .upload_box .file {
-        display: none;
-      }
-
-      /*이미지 업로드 박스*/
-
-      .contents .upload_box {
-        width: 100%;
-        box-sizing: border-box;
-        margin-right: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .contents .upload_box .drag_file {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px solid gray;
-        border-radius: 100px;
-      }
-
-      /*이미지 업로드 하이라이트*/
-      .contents .upload_box .drag_file.highlight {
-        border: 3px solid red;
-      }
-
-      .contents .upload_box .drag_file .default_image {
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-      }
-
-      .contents .upload_box .drag_file .messeage {
-        margin-bottom: 0;
-      }
-
-      .contents .upload_box .drag_file .preview {
-        display: none;
-        position: absolute;
-        left: 0;
-        height: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-      }
-
-      #profile {
-        margin-top: 30px;
-        text-align: center;
-      }
-
-      /**/
-
-      /*
-      @media (max-width: 100px) {
-        .contents {
-          display: flex;
-          flex-direction: column;
-          margin-top: 30px;
-        }
-        .contents .upload_box {
-          width: 100%;
-          box-sizing: border-box;
-          margin-right: 0;
-        }
-        .contents .upload_box .drag_file {
-          height: 150px;
-        }
-        .contents .files {
-          width: 100%;
-          box-sizing: border-box;
-          margin-right: 0;
-          overflow: initial;
-        }
-      }
-      */
-    </style>
+    <!-- <script>
+      $(document).ready(function (myGoogleLogin) {});
+    </script> -->
   </head>
-  <body>
+
+  <body onload="myGoogleLogin()">
     <!--  -->
 
     <div id="root">
@@ -237,14 +129,22 @@
             onchange="dropFile.handleFiles(this.files)"
             accept="image/png, image/jpeg, image/jpg"
           />
+
+          <!-- 로그아웃 버튼 -->
+
+          <button id="sign_out" onclick="handleLogout()">로그아웃</button>
         </div>
 
         <!-- 내 정보 -->
       </div>
-      <p id="profile">
-        이름 : <br />
-        이메일 :
-      </p>
+
+      <div id="google_Info">
+        <h3>계정 정보</h3>
+        <p id="profile">
+          이름 : <br />
+          이메일 :
+        </p>
+      </div>
     </div>
 
     <script>
@@ -316,9 +216,9 @@
 
       const dropFile = new DropFile("drop_file", "files");
 
-      // 내 구글 계정 정보 로딩 ..미완성 ,, 하는 중 입니다
+      // 내 구글 계정 정보 로딩
 
-      function myGoogle() {
+      function myGoogleLogin() {
         /*
         const config = {
           headers: {
@@ -327,12 +227,23 @@
           },
         };
         */
+
+        /*
         let get_token = JSON.parse(localStorage.getItem("token"));
         console.log("get id token : ", get_token);
+        return get_token !== null;
+        */
+
+        let get_token = localStorage.getItem("ID");
+        let get_name = localStorage.getItem("Name");
+        let get_email = localStorage.getItem("Email");
+        console.log("get id token :", get_token);
+        console.log("user name :", get_name);
+        console.log("get_email :", get_email);
 
         document.getElementById("profile").innerHTML = `
-        <h3> 이름 : ${user.name} <br>
-            <h3> E-mail : ${user.email}`;
+        <h3> 이름 : ${get_name} <br>
+            <h3> E-mail : ${get_email}`;
       }
     </script>
 
