@@ -13,8 +13,8 @@
 .container {
   margin: 100px;
   padding: 50px;
-  background-color: aliceblue;
-  color: black;
+  background-color: black;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
