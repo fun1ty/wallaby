@@ -8,19 +8,10 @@ button {
   /* border-color: black; */
 }
 
-#post_comment_input {
+#comment_input {
   border: none;
 }
 
-/* 
-.comment_wrap {
-  border: 1px solid black;
+input {
+  width: 20%;
 }
-
-.comment_list {
-  border: 1px solid black;
-}
-
-li {
-  border: 1px solid black;
-} */
