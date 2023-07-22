@@ -20,129 +20,86 @@
   </head>
   <body>
     <div class="write_wrapper">
-      <nav>
-        <div class="menubox">
-          <ul>
-            <li>
-              <a href="#">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="currentColor"
-                  class="bi bi-0-circle-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z"
-                  />
-                  <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.012 4.158c1.858 0 2.96-1.582 2.96-3.99V7.84c0-2.426-1.079-3.996-2.936-3.996-1.864 0-2.965 1.588-2.965 3.996v.328c0 2.42 1.09 3.99 2.941 3.99Z"
-                  />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <header>새로운 글작성</header>
+      <hr />
       <main>
-        <button class="x" onclick="xButton();">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="black"
-            class="bi bi-x-lg"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
-            />
-          </svg>
-        </button>
-
-        <!-- 파일첨부 -->
-        <!-- <div contentEditable="true" id="editor" class="editor" ></div> -->
-        <form class="write">
-          <textarea
-            name="textarea"
-            id="textarea"
-            rows="1"
-            placeholder="타인에게 혐오감을 주거나 불쾌한 사진을 올리면 제재 혹은 계정이 정지될수 있습니다."
-            oninput="autoResizeTextArea()"
-            required
-          ></textarea>
-          <div class="write_btn">
-            <button class="submit btn" id="submit_btn">게시</button>
-          </div>
-        </form>
-        <input type="file" id="imageInput" accept="image/*" onchange="insertImage()" multiple />
-        
-        <div id="image-show"><button id="img_x" ><i class="bi bi-x-circle-fill"></i></button></div>
-        
-
-        
-        <!-- <form method="post" enctype="multipart/form-data">
-          <div class="file_submit btn">
-            <label for="chooseFile">
+        <div class="body_inner">
+          <div class="menubox">
+            <ul>
+              <li>
+                <a href="#" class="profile">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="currentColor"
+                    class="bi bi-0-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895Z"
+                    />
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.012 4.158c1.858 0 2.96-1.582 2.96-3.99V7.84c0-2.426-1.079-3.996-2.936-3.996-1.864 0-2.965 1.588-2.965 3.996v.328c0 2.42 1.09 3.99 2.941 3.99Z"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+            <button class="x" onclick="xButton();">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                fill="grey"
-                class="bi bi-paperclip"
+                fill="black"
+                class="bi bi-x-lg"
                 viewBox="0 0 16 16"
               >
                 <path
-                  d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"
+                  d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
                 />
               </svg>
-            </label>
-          </div>
-          <input
-            type="file"
-            id="chooseFile"
-            name="chooseFile"
-            accept="image/*"
-            onchange="loadFile(this)"
-          />
-        </form>
+            </button>
 
-        <div class="fileContainer">
-          <div class="fileInput">
-            <p>FILE NAME:</p>
-            <p id="fileName"></p>
+            <!-- 글작성 영역-->
+            <form class="write">
+              <textarea
+                name="textarea"
+                id="textarea"
+                rows="1"
+                placeholder="타인에게 혐오감을 주거나 불쾌한 사진을 올리면 제재 혹은 계정이 정지될수 있습니다."
+                oninput="autoResizeTextArea()"
+                required
+              ></textarea>
+            </form>
+
+            <!-- 파일첨부 버튼 -->
+            <div class="filebox">
+              <label for="file">
+                <i class="bi bi-paperclip" onchange="insertImage()"></i>
+              </label>
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                onchange="insertImage()"
+                multiple
+              />
+            </div>
+            <ul id="image-show"></ul>
           </div>
-          <div class="buttonContainer">
-            <div class="submitButton" id="submitButton">SUBMIT</div>
-          </div>
-        </div> -->
-        <!-- 이미지 미리보기를 위한 img 요소 -->
-        <!-- <img id="previewImage" id="previewImage" /> -->
-        <!-- <div class="image-show" id="image-show"></div>
-        <form class="write">
-          <textarea
-            name="textarea"
-            id="textarea"
-            cols="1000"
-            rows="10"
-            placeholder="타인에게 혐오감을 주거나 불쾌한 사진을 올리면 제재 혹은 계정이 정지될수 있습니다."
-            required
-          ></textarea>
-          <div class="write_btn">
-            <button class="submit btn" id="submit_btn">게시</button>
-          </div>
-        </form>
+        </div>
       </main>
-    </div> -->
-
+      <div class="write_btn">
+        <button class="submit btn" id="submit_btn">게시</button>
+      </div>
+    </div>
     <script src="../Js/write_board.js"></script>
-    <!-- <script src="jquery.cookie.js"></script>  -->
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("/Team5_1st_project/html/footer.html");
+      });
+    </script>
   </body>
-  <div id="footer"></div>
-  <script>
-    $(document).ready(function () {
-      $("#footer").load("/Team5_1st_project/html/footer.html");
-    });
-  </script>
 </html>
