@@ -3,21 +3,34 @@
   /* margin: 3%; */
 }
 .write_wrapper {
+  position: relative;
+}
+.menubox {
   display: flex;
+  align-items: center;
 }
 .menubox > ul > li {
   padding: 0 0 0 0px;
 }
-
+.profile {
+  z-index: 999;
+}
+/* .write_wrapper > nav {
+  display: block;
+} */
 #textarea {
-  position: absolute;
-  top: 5%;
+  /* position: absolute; */
+  /* top: 30%; */
   width: 80%;
   border: none;
   resize: none;
-  padding: 0px 0px 0px 1em;
+  padding: 0px 0px 0px 3em;
   overflow: hidden;
-  max-height: 20%;
+  max-height: 40%;
+}
+.write_btn {
+  display: block;
+  align-items: flex-end;
 }
 #textarea:focus {
   outline: none;
@@ -82,10 +95,9 @@ label {
   height: 100%;
 }
 
-/* #img_x {
+#file {
   display: none;
-  z-index: 99;
-} */
+}
 /*  미디어쿼리 */
 @media (max-width: 390px) and (max-height: 844px) {
   .write_wrapper {
