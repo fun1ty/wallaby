@@ -165,6 +165,6 @@ function addPost(setImageUrl, content) {
 
   // 게시물 보여주기
   function displayPost() {
-    location.href = "/Team5_1st_project/html/board.html";
+    location.href = "/Web-project1/Team5_1st_project/html/board.html";
   }
 }
