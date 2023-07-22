@@ -32,12 +32,20 @@
       <button class="comment_btn">게시</button>
       <!-- jquery -->
     </section>
-    <div id="commentList"></div>
+    <div id="commentList">
+      <ul></ul>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
       crossorigin="anonymous"
     ></script>
+    <script>
+      const comments = localStorage.getItem("comment");
+      if (comments == undefined) localStorage.setItem("comment", []);
+      const likeCount = localStorage.getItem("like");
+      if (likeCount == undefined) localStorage.setItem("like", []);
+    </script>
     <script src="../Js/comment.js"></script>
   </body>
 </html>
