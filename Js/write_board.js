@@ -147,7 +147,6 @@ let settTime = `${year}.${month}.${date} ${hours}:${minutes}:${seconds}`;
 console.log(settTime);
 
 //localstorage 에 게시글 저장하고 board.html에 전송
-
 $(".submit").click(function () {
   event.preventDefault();
   // 작성글 추가
@@ -166,7 +165,11 @@ $(".submit").click(function () {
 
 // 게시물 추가
 function addPost(setImageUrl, content) {
-  const imageTag = `<img src="${setImageUrl}" alt="uploaded image" />`;
+  let imageTag = "";
+  if (typeof setImageUrl !== "undefined") {
+    //이미지 없을때 엑박으로 나오는거 방지
+    imageTag = `<img src="${setImageUrl}"  />`;
+  }
   let postId = settTime;
   let post = {
     id: postId,
@@ -193,6 +196,7 @@ function addPost(setImageUrl, content) {
 
   // 게시물 보여주기
   function displayPost() {
-    location.href = "/Team5_1st_project/html/board.html";
+    console.log("보드로 넘어가기");
+    location.href = "../html/board.html";
   }
 }
