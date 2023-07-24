@@ -23,6 +23,7 @@
     <title>write_board</title>
   </head>
   <body>
+    <div id="headers"></div>
     <div class="write_wrapper">
       <header>새로운 글작성</header>
       <hr />
@@ -114,6 +115,9 @@
     <div id="footer"></div>
     <script>
       $(document).ready(function () {
+        $("#headers").load("../html/header.html", function () {
+          $(".p-3 ").css("display", "none");
+        });
         $("#footer").load("../html/footer.html", function () {
           $("#footer_ul li a.write").css({
             background:

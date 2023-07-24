@@ -1,6 +1,11 @@
 let setImageUrl;
 let content;
 
+$(document).ready(function () {
+  // textarea 요소의 required 속성과 style 속성을 제거
+  $("#textarea").removeAttr("required").removeAttr("style");
+});
+
 //textarea 글자 입력할때마다 영역 증가
 function autoResizeTextArea() {
   const textarea = document.getElementById("textarea");
