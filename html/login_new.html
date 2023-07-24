@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/login_new.css" />
+    <title>로그인_new</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="sign-up-container">
+          <form>
+            <h1>Create Account</h1>
+            <div class="social-links">
+              <div>
+                <a href="#"
+                  ><i class="fa fa-facebook" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              </div>
+              <div>
+                <a href="#"
+                  ><i class="fa fa-linkedin" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button class="form_btn">회원가입</button>
+          </form>
+        </div>
+        <div class="sign-in-container">
+          <form>
+            <h1>로그인</h1>
+            <div class="social-links">
+              <div>
+                <a href="#"
+                  ><i class="fa fa-facebook" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              </div>
+              <div>
+                <a href="#"
+                  ><i class="fa fa-linkedin" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button class="form_btn">로그인</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay-left">
+            <h1>Welcome Back</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button id="signIn" class="overlay_btn">시작하기</button>
+          </div>
+          <div class="overlay-right">
+            <h1>WALLABY</h1>
+            <p>왈라비에 오신 것을 환영합니다</p>
+            <button id="signUp" class="overlay_btn">회원가입</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const signUpBtn = document.getElementById("signUp");
+      const signInBtn = document.getElementById("signIn");
+      const container = document.querySelector(".container");
+
+      signUpBtn.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+      signInBtn.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+    </script>
+
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html");
+      });
+    </script>
+  </body>
+</html>
