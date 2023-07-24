@@ -7,9 +7,9 @@ const password = document.querySelector("#pw_box");
 const password_one = password.querySelector("input");
 
 // btn
-const form = document.querySelector(".join_btn");
-console.log(form);
-console.log("input id : ", input_one);
+// const form = document.querySelector(".join_btn");
+// console.log(form);
+// console.log("input id : ", input_one);
 
 //
 
@@ -20,6 +20,8 @@ function handleSubmitId(event) {
   let currentPw = password_one.value;
 
   localStorage.setItem(currentId, currentPw);
+
+  console.log("set item");
 }
 
 // function init() {
