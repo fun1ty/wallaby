@@ -15,13 +15,9 @@
 .profile {
   z-index: 999;
 }
-/* .write_wrapper > nav {
-  display: block;
-} */
+
 #textarea {
-  /* position: absolute; */
-  /* top: 30%; */
-  width: 80%;
+  width: 70%;
   border: none;
   resize: none;
   padding: 0px 0px 0px 3em;
@@ -30,7 +26,8 @@
 }
 .write_btn {
   display: block;
-  align-items: flex-end;
+  position: absolute;
+  right: 19%;
 }
 #textarea:focus {
   outline: none;
@@ -46,12 +43,6 @@
   justify-content: center;
 }
 
-label {
-  cursor: pointer;
-  font-size: 1em;
-}
-
-/* 못생긴 기존 input 숨기기 */
 #chooseFile {
   visibility: hidden;
 }
@@ -64,16 +55,10 @@ label {
 .button {
   z-index: 1;
 }
-.write_btn {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-}
 
 .x {
   position: absolute;
-  top: 1%;
-  right: 10%;
+  right: 20%;
   z-index: 2;
 }
 
@@ -89,15 +74,32 @@ label {
   margin-bottom: 10px;
 }
 #image-show {
-  position: relative;
-  top: 50%;
   width: 100%;
   height: 100%;
 }
 
-#file {
-  display: none;
+.filebox {
+  position: absolute;
+  top: 100%;
+  left: 3%;
 }
+
+/* 파일첨부 버튼 스타일 변경 */
+input[type="file"] {
+  opacity: 0;
+}
+
+.bi-paperclip {
+  position: absolute;
+  width: 50px;
+  /* bottom: -25%; */
+  height: 30px;
+  transform: rotate(35deg);
+}
+.bi-paperclip :hover {
+  cursor: pointer;
+}
+
 /*  미디어쿼리 */
 @media (max-width: 390px) and (max-height: 844px) {
   .write_wrapper {
@@ -121,5 +123,12 @@ label {
   }
   .write_btn {
     top: 60%;
+    right: 10%;
+  }
+  .filebox {
+    top: 60%;
+  }
+  .x {
+    right: 10%;
   }
 }
