@@ -7,6 +7,12 @@
 
     <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/login_new.css" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
     <title>로그인_new</title>
   </head>
   <body>
@@ -58,7 +64,7 @@
             <span>or use your account</span>
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Password" />
-            <button class="form_btn">로그인</button>
+            <button class="form_btn">시작하기</button>
           </form>
         </div>
         <div class="overlay-container">
@@ -79,6 +85,7 @@
     </div>
 
     <script>
+      // 로그인 버튼
       const signUpBtn = document.getElementById("signUp");
       const signInBtn = document.getElementById("signIn");
       const container = document.querySelector(".container");
