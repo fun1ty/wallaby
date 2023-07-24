@@ -163,6 +163,12 @@ $(".submit").click(function () {
   addPost(setImageUrl, content);
 });
 
+//postId - 랜덤문자열 생성
+const random = (length = 8) => {
+  return Math.random().toString(16).substr(2, length);
+};
+console.log(random());
+
 // 게시물 추가
 function addPost(setImageUrl, content) {
   let imageTag = "";
@@ -170,7 +176,7 @@ function addPost(setImageUrl, content) {
     //이미지 없을때 엑박으로 나오는거 방지
     imageTag = `<img src="${setImageUrl}"  />`;
   }
-  let postId = settTime;
+  let postId = random();
   let post = {
     id: postId,
     date: settTime,
