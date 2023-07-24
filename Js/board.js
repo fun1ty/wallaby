@@ -10,11 +10,12 @@ function displayPost(post) {
   let postList = document.querySelector("#postList");
   let listItem = document.createElement("div");
   listItem.className = "listItem";
+  console.log(post);
 
   let aElement = document.createElement("a");
   aElement.className = "aElement";
   aElement.id = `${post.id}`;
-  aElement.href = "../html/post.html";
+  aElement.href = `../html/post.html?id=${post.idx}`;
   aElement.style.textDecoration = "none";
   aElement.style.color = "black";
   aElement.style.display = "flex";

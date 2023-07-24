@@ -1,10 +1,20 @@
 "use strict";
 
+$(document).ready(function () {
+  let comments = getComments();
+  for (let i = 0; i < comments.length; i++) {
+    postComment(comments[i]);
+  }
+});
+
 const postComment = () => {
   const commentInput = document.getElementById("comment_input");
   const commentPostBtn = document.getElementsByClassName("comment_btn")[0];
+  // 리더님의 도움이..
+  const query = new URLSearchParams(location.search);
+  console.log(query.get("id"));
+  let boardID = query.get("id");
 
-  let boardID = 1;
   // 댓글 입력시 요소 생성
   const addNewComment = () => {
     const newCommentLocation =
@@ -90,4 +100,8 @@ const postComment = () => {
   };
 };
 
+function getComments() {
+  var commentsJson = localStorage.getItem("comment");
+  return JSON.parse(commentsJson) || [];
+}
 postComment();
