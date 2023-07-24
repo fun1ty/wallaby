@@ -69,3 +69,16 @@ body {
   -webkit-background-clip: text;
   /* color: transparent; */
 }
+
+/*  미디어쿼리 */
+@media (max-width: 390px) and (max-height: 844px) {
+  #footer_ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  #footer_ul > li {
+    padding: 14px;
+  }
+}
