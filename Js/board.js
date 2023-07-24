@@ -81,12 +81,14 @@ $("#postList").on("click", ".aElement", function () {
   let postID = $(this).attr("id");
   let contents = $(this).find(".content").text();
   let image = $(this).find("img").attr("src");
+  // 이미지 태그를 생성하여 로컬스토리지에 삽입
+  const imageTag = `<img src="${image}" alt="postImg" />`;
   let date = $(this).find(".date").text();
 
   let postData = {
     id: postID,
     content: contents,
-    img: image,
+    img: imageTag,
     date: date,
   };
   localStorage.setItem("postData", JSON.stringify(postData));

@@ -43,21 +43,29 @@ body {
   padding-bottom: 100px;
 }
 
-/* .click {
-  background: linear-gradient(to bottom, #4474dbaa, #9140b9aa);
+#footer_ul a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: linear-gradient(to right top, #ff9edaaa, #89ebff); */
+  background: #8b969d;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
 
-.non-click {
-  color: gray;
-  text-decoration: none;
-} */
+#footer_ul > li {
+  position: relative;
+}
 
-#footer_ul a {
-  background: linear-gradient(to bottom, #ff9edaaa, #89ebff);
+#footer_ul a:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    to left bottom,
+    rgb(229, 56, 162),
+    rgb(47, 201, 231)
+  );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
+  /* color: transparent; */
 }
