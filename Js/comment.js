@@ -79,23 +79,6 @@ const postComment = () => {
     const heartIcon = e.currentTarget.querySelector("i");
     const isFilled = heartIcon.classList.contains("bi-suit-heart-fill");
 
-    let likeCount = localStorage.getItem("like");
-    if (likes == "") likes = [];
-    else likes = JSON.parse(likes);
-
-    let selected = null;
-    console.log(selected);
-    if (selected == null) {
-      const likeBtn = {
-        like: [likeCount.cl],
-      };
-      comments.push(newComment);
-      localStorage.setItem("comment", JSON.stringify(comments));
-    } else {
-      selected["comment"].push(commentInput.value);
-      localStorage.setItem("comment", JSON.stringify(comments));
-    }
-
     if (isFilled) {
       heartIcon.classList.remove("bi-suit-heart-fill");
       heartIcon.classList.add("bi-suit-heart");
