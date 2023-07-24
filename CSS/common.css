@@ -23,7 +23,7 @@ ul {
 ul > li {
   padding: 1%;
 }
-
+/* 
 a {
   text-decoration: none;
   color: black;
@@ -31,7 +31,8 @@ a {
 .board > a {
   text-decoration: none;
   color: black;
-}
+} */
+
 button {
   all: unset;
   cursor: pointer;

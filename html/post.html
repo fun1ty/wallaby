@@ -19,6 +19,7 @@
   </head>
   <body>
     <div id="headers"></div>
+
     <div class="container">
       <div class="board">
         <div id="postList"></div>
@@ -26,10 +27,17 @@
     </div>
     <div id="footer"></div>
 
+
+    <div id="like_btn"></div>
+    <div id="comment"></div>
+
+    <div id="footer"></div>
     <script>
       $(document).ready(function () {
         $("#headers").load("../html/header.html");
         $("#footer").load("../html/footer.html");
+        $("#like_btn").load("../html/like.html");
+        $("#comment").load("../html/comment.html");
       });
     </script>
     <script src="../Js/post.js"></script>

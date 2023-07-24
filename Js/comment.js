@@ -16,7 +16,6 @@ const postComment = () => {
         <span id="user_id"><b></b></span>
         <span>${commentInput.value}</span>
         <button class="like_btn"><i class="bi bi-suit-heart"></i></button>
-        <button class="reply_btn">답글</button>
       </div>
     `;
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/write_board.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
@@ -17,25 +18,21 @@
     ></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
-    <title>board</title>
+    <title>Document</title>
   </head>
   <body>
     <div id="headers"></div>
-    <!-- 삭제버튼 추가해야함 -->
-    <div class="container">
-      <div class="board">
-        <div id="postList"></div>
-      </div>
-    </div>
+    좋아요 게시물 목록 불러오기 🥺
     <div id="footer"></div>
     <script>
       $(document).ready(function () {
         $("#headers").load("../html/header.html");
         $("#footer").load("../html/footer.html");
+        $("#like_btn").load("../html/like.html");
+        $("#comment").load("../html/comment.html");
       });
     </script>
-    <script src="../Js/board.js"></script>
   </body>
 </html>
