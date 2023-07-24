@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <h2>회원가입</h2>
+    <form id="signupForm">
+      <!-- 사용자명 -->
+      <label for="signupUsername">사용자 이름:</label>
+      <input type="text" id="signupUsername" required />
+      <br />
+
+      <!-- 아이디 -->
+      <label for="signupId">아이디:</label>
+      <input type="text" id="signupId" required />
+      <br />
+
+      <!-- 비밀번호 -->
+      <label for="signupPassword">비밀번호:</label>
+      <input type="password" id="signupPassword" required />
+      <br />
+      <button type="submit">회원가입</button>
+    </form>
+
+    <script>
+      const signupForm = document.getElementById("signupForm");
+
+      signupForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const username = document.getElementById("signupUsername").value;
+        const id = document.getElementById("signupId").value;
+        const password = document.getElementById("signupPassword").value;
+
+        // 사용자 정보를 local storage에 저장
+        localStorage.setItem("username", username);
+        localStorage.setItem("id", id);
+        localStorage.setItem("password", password);
+
+        alert("회원가입이 완료되었습니다!");
+        window.location.href = "./login_real.html";
+      });
+    </script>
+  </body>
+</html>
