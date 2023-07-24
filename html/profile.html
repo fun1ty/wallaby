@@ -19,8 +19,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script type="text/javascript" src="../Js/login.js"></script>
-
     <title>마이 프로필 수정</title>
 
     <!-- <script>
@@ -132,12 +130,13 @@
 
           <!-- 로그아웃 버튼 -->
 
-          <button id="sign_out" onclick="handleLogout()">로그아웃</button>
+          <button id="sign_out" onclick="myGoogleLogout()">로그아웃</button>
         </div>
 
         <!-- 내 정보 -->
       </div>
 
+      <!-- 구글 계정 정보 -->
       <div id="google_Info">
         <h3>계정 정보</h3>
         <p id="profile">
@@ -145,6 +144,10 @@
           이메일 :
         </p>
       </div>
+
+      <!-- 왈라비 계정 정보 -->
+
+      <div id="wallabyInfo"></div>
     </div>
 
     <script>
@@ -197,11 +200,51 @@
         function renderFile(file) {
           let reader = new FileReader();
           reader.readAsDataURL(file);
-          reader.onloadend = function () {
+          reader.onloadend = function (event) {
             let img = dropArea.getElementsByClassName("preview")[0];
             img.src = reader.result;
             img.style.display = "block";
+
+            // 이미지 로컬 스토리지에 저장하기
+            const imgURL = event.target.result;
+            const imgTag = `<img src="${imgURL}" alt="uploaded image">`;
+            insertHtmlAtCaret(imgTag);
+            $("#img_x").css({
+              display: "block",
+              top: "0%",
+              right: "0%",
+              position: "absolute",
+            });
+
+            localStorage.setItem("IMG", imgURL);
           };
+        }
+
+        function insertHtmlAtCaret(html) {
+          const sel = window.getSelection();
+          if (sel.getRangeAt && sel.rangeCount) {
+            const range = sel.getRangeAt(0);
+            range.deleteContents();
+
+            const el = document.createElement("div");
+            el.innerHTML = html;
+            const frag = document.createDocumentFragment();
+            let node;
+            let lastNode;
+            while ((node = el.firstChild)) {
+              lastNode = frag.appendChild(node);
+            }
+            range.insertNode(frag);
+
+            // Preserve the selection
+            if (lastNode) {
+              range = range.cloneRange();
+              range.setStartAfter(lastNode);
+              range.collapse(true);
+              sel.removeAllRanges();
+              sel.addRange(range);
+            }
+          }
         }
 
         dropArea.addEventListener("dragenter", highlight, false);
@@ -244,6 +287,11 @@
         document.getElementById("profile").innerHTML = `
         <h3> 이름 : ${get_name} <br>
             <h3> E-mail : ${get_email}`;
+      }
+
+      function myGoogleLogout() {
+        localStorage.clear();
+        window.location.href = "../html/login.html";
       }
     </script>
 
