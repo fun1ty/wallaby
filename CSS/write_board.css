@@ -99,6 +99,15 @@ input[type="file"] {
 .bi-paperclip :hover {
   cursor: pointer;
 }
+/* .footer_li > .board {
+  background: linear-gradient(
+    to left bottom,
+    rgb(229, 56, 162),
+    rgb(47, 201, 231)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
 
 /*  미디어쿼리 */
 @media (max-width: 390px) and (max-height: 844px) {

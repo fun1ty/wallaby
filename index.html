@@ -54,7 +54,14 @@
     <script>
       $(document).ready(function () {
         $("#headers").load("./html/header.html");
-        $("#footer").load("../html/footer.html");
+        $("#footer").load("../html/footer.html", function () {
+          $("#footer_ul li a.Home").css({
+            background:
+              "linear-gradient(to left bottom, rgb(229, 56, 162), rgb(47, 201, 231))",
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+          });
+        });
       });
     </script>
   </body>
