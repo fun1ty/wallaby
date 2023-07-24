@@ -4,6 +4,7 @@ const postComment = () => {
   const commentInput = document.getElementById("comment_input");
   const commentPostBtn = document.getElementsByClassName("comment_btn")[0];
 
+  let boardID = 1;
   // 댓글 입력시 요소 생성
   const addNewComment = () => {
     const newCommentLocation =
@@ -12,7 +13,7 @@ const postComment = () => {
 
     newComment.innerHTML = `
       <div class="user_desc">
-        <span id="user_id"><b>user</b></span>
+        <span id="user_id"><b></b></span>
         <span>${commentInput.value}</span>
         <button class="like_btn"><i class="bi bi-suit-heart"></i></button>
         <button class="reply_btn">답글</button>
@@ -20,11 +21,35 @@ const postComment = () => {
     `;
 
     newCommentLocation.appendChild(newComment);
-    commentInput.value = "";
 
     // 좋아요 버튼 클릭 이벤트 추가
     const likeBtn = newComment.querySelector(".like_btn");
     likeBtn.addEventListener("click", toggleLike);
+
+    // comments 스토리지에 저장 (린다리더님의 도움의 손길이..🥺)
+    // '[{"boardID":1,"comment":["dd"]},{"boardID":2,"comment":["dd"]}]'
+    let comments = localStorage.getItem("comment");
+    if (comments == "") comments = [];
+    else comments = JSON.parse(comments);
+
+    let selected = null;
+    for (let comment of comments) {
+      if (comment["boardID"] == boardID) selected = comment;
+    }
+    console.log(selected);
+    if (selected == null) {
+      const newComment = {
+        boardID: boardID,
+        comment: [commentInput.value],
+      };
+      comments.push(newComment);
+      localStorage.setItem("comment", JSON.stringify(comments));
+    } else {
+      selected["comment"].push(commentInput.value);
+      localStorage.setItem("comment", JSON.stringify(comments));
+    }
+
+    commentInput.value = "";
   };
 
   // 사용자 입력 들어올 시, 게시 버튼 활성화
@@ -54,6 +79,23 @@ const postComment = () => {
     const heartIcon = e.currentTarget.querySelector("i");
     const isFilled = heartIcon.classList.contains("bi-suit-heart-fill");
 
+    let likeCount = localStorage.getItem("like");
+    if (likes == "") likes = [];
+    else likes = JSON.parse(likes);
+
+    let selected = null;
+    console.log(selected);
+    if (selected == null) {
+      const likeBtn = {
+        like: [likeCount.cl],
+      };
+      comments.push(newComment);
+      localStorage.setItem("comment", JSON.stringify(comments));
+    } else {
+      selected["comment"].push(commentInput.value);
+      localStorage.setItem("comment", JSON.stringify(comments));
+    }
+
     if (isFilled) {
       heartIcon.classList.remove("bi-suit-heart-fill");
       heartIcon.classList.add("bi-suit-heart");
@@ -67,53 +109,3 @@ const postComment = () => {
 };
 
 postComment();
-
-// 댓글 로컬스토리지에 저장 왜 안돼 씨
-
-document.getElementById("comment_wrap").onsubmit = function (e) {
-  e.preventDefault();
-
-  let name = document.getElementById("user_id").value;
-  let comment = document.getElementById("comment_input").value;
-
-  let commentSave = {
-    user: name,
-    content: comment,
-  };
-
-  let comments = getComment();
-
-  comments.push(commentSave);
-
-  localStorage.setItem("comments", JSON.stringify(comments));
-
-  loadComments();
-
-  document.getElementById("comment_wrap").reset();
-};
-
-function getComments() {
-  let comments = localStorage.getItem("comments");
-
-  if (comments) {
-    return JSON.parse(comments);
-  } else {
-    return [];
-  }
-}
-
-function loadComments() {
-  let commentList = document.getElementById("commentList");
-  commentList.innerHTML = "";
-
-  let comments = getComments();
-
-  for (let i = 0; i < comments.length; i++) {
-    let comment = comments[i];
-
-    let listItem = document.createElement("li");
-    listItem.innerHTML = `<strong>${comment.user}:</strong>+${comment.content}`;
-
-    commentList.appendChild(listItem);
-  }
-}

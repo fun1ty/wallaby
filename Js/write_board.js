@@ -202,7 +202,9 @@ function addPost(setImageUrl, content) {
 
   // 게시물 보여주기
   function displayPost() {
+
     console.log("보드로 넘어가기");
     location.href = "../html/board.html";
+
   }
 }
