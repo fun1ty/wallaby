@@ -15,3 +15,19 @@ button {
 input {
   width: 20%;
 }
+
+/* 중앙정렬 */
+
+/* .article_wrap {
+  display: flex;
+  justify-content: center;
+}
+
+#comment_wrap {
+  display: flex;
+  justify-content: center;
+} */
+
+.comment_wrap {
+  margin: 50px;
+}

@@ -11,19 +11,27 @@ function toggleHeart(e) {
   let likeValue = 0;
 
   if (isFilled) {
+    const icon = document.querySelector(".heart_icon > span");
+    icon.remove();
+
     heartIcon.classList.remove("bi-suit-heart-fill");
     heartIcon.classList.add("bi-suit-heart");
     heartIcon.style.color = "#000";
-    likeValue--;
+    console.log(likeValue--);
   } else {
     heartIcon.classList.add("bi-suit-heart-fill");
     heartIcon.classList.remove("bi-suit-heart");
     heartIcon.style.color = "#FF0000";
     likeValue++;
+    const icon = document.querySelector(".heart_icon");
+    const span = document.createElement("span");
+    const text = `좋아요 ${likeValue}개`;
+    span.innerText = text;
+    icon.append(span);
   }
 
-  likeCounts = document.createElement("span");
-  likeCounts.innerHTML = `likeValue :`;
+  // likeCounts = document.createElement("span");
+  // likeCounts.innerHTML = `likeValue :`;
 }
 
 // let likes = localStorage.getItem("like");

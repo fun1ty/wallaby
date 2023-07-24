@@ -1,13 +1,25 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
+@font-face {
+  font-family: "Dovemayo_gothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "Dovemayo_gothic", sans-serif;
+}
+
 nav ul {
   list-style-type: none;
   display: flex;
   justify-content: center;
 }
 
-ul > li {
-  padding: 40px;
+#footer_ul > li {
+  padding: 32px;
 }
 
 .nav > li {
@@ -29,4 +41,23 @@ nav {
 
 body {
   padding-bottom: 100px;
+}
+
+/* .click {
+  background: linear-gradient(to bottom, #4474dbaa, #9140b9aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.non-click {
+  color: gray;
+  text-decoration: none;
+} */
+
+#footer_ul a {
+  background: linear-gradient(to bottom, #ff9edaaa, #89ebff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
 }
