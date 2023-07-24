@@ -114,7 +114,14 @@
     <div id="footer"></div>
     <script>
       $(document).ready(function () {
-        $("#footer").load("../html/footer.html");
+        $("#footer").load("../html/footer.html", function () {
+          $("#footer_ul li a.write").css({
+            background:
+              "linear-gradient(to left bottom, rgb(229, 56, 162), rgb(47, 201, 231))",
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+          });
+        });
       });
     </script>
   </body>
