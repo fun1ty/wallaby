@@ -12,7 +12,7 @@ button {
   border: none;
 }
 
-input {
+#comment_input {
   width: 20%;
 }
 
@@ -35,5 +35,9 @@ input {
 @media (max-width: 390px) and (max-height: 844px) {
   .comment_wrap {
     margin: 10px;
+  }
+  #comment_input {
+    width: 60%;
+
   }
 }

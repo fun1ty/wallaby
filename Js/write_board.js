@@ -61,7 +61,7 @@ function displayPreviewImage(imageUrl) {
   const liElement = document.createElement("li");
   liElement.appendChild(previewImage);
 
-  //x버튼 보이기
+  //이미지 미리보기 x버튼 보이기
   const create_img_xbtn = `<button class="img_x" id="img_x"><i class="bi bi-x-circle-fill"></i></button>`;
   liElement.innerHTML += create_img_xbtn;
 
@@ -82,6 +82,7 @@ function displayPreviewImage(imageUrl) {
 // 게시물 보여주기
 function displayPost(post) {
   let listItem = document.createElement("li");
+
   // 이미지와 내용이 모두 있는 경우에만 추가
   const imageTag = post.img || "";
   const content = post.content || "";
@@ -168,21 +169,34 @@ $(".submit").click(function () {
   addPost(setImageUrl, content);
 });
 
+//postId - 랜덤문자열 생성
+const random = (length = 8) => {
+  return Math.random().toString(16).substr(2, length);
+};
+console.log(random());
+
 // 게시물 추가
 function addPost(setImageUrl, content) {
   let imageTag = "";
+  // 저장된 사용자 정보 가져오기
+  let savedUserId = localStorage.getItem("id");
+  if (savedUserId === null) {
+    savedUserId = `익명의 왈라비${random()}`;
+  }
+
   if (typeof setImageUrl !== "undefined") {
     //이미지 없을때 엑박으로 나오는거 방지
     imageTag = `<img src="${setImageUrl}"  />`;
   }
   let posts = getPosts();
-  let postId = settTime;
+  let postId = random();
   let post = {
     id: postId,
     date: settTime,
     content: content,
     img: imageTag,
     idx: posts.length + 1,
+    loginId: savedUserId,
   };
   posts.push(post);
   savePosts(posts);

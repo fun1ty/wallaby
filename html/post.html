@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
+    <link rel="stylesheet" href="../CSS/write_board.css" />
     <script
       src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
@@ -21,7 +22,7 @@
     <div id="headers"></div>
 
     <div class="container">
-      <div class="board">
+      <div class="post_board">
         <div id="postList"></div>
       </div>
     </div>
@@ -32,8 +33,18 @@
       $(document).ready(function () {
         $("#headers").load("../html/header.html");
         $("#footer").load("../html/footer.html");
-        $("#like_btn").load("../html/like.html");
-        $("#comment").load("../html/comment.html");
+        $("#like_btn").load("../html/like.html", function () {
+          $(".heart_icon_top").css({
+            display: "flex",
+            "justify-content": "center",
+          });
+        });
+        $("#comment").load("../html/comment.html", function () {
+          $("#comment_wrap").css({
+            display: "flex",
+            "justify-content": "center",
+          });
+        });
       });
     </script>
     <script src="../Js/post.js"></script>

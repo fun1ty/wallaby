@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로필 수정 페이지</title>
+  </head>
+  <body>
+    <h1>프로필 수정 페이지</h1>
+
+    <!-- 프로필 사진 수정 폼 -->
+    <h2>프로필 사진 수정</h2>
+    <form id="profileImageForm">
+      <label for="profileImage">프로필 사진 선택:</label>
+      <input type="file" id="profileImage" />
+      <br />
+      <button type="submit">사진 수정</button>
+    </form>
+
+    <!-- 사용자명 수정 폼 -->
+    <h2>사용자명 수정</h2>
+    <form id="usernameForm">
+      <label for="newUsername">새 사용자명:</label>
+      <input type="text" id="newUsername" required />
+      <br />
+      <button type="submit">사용자명 수정</button>
+    </form>
+
+    <script>
+      // 프로필 사진 수정 기능
+      const profileImageForm = document.getElementById("profileImageForm");
+      const profileImageInput = document.getElementById("profileImage");
+      const profileImagePreview = document.getElementById(
+        "profileImagePreview"
+      );
+
+      profileImageForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const selectedImage = profileImageInput.files[0];
+
+        if (selectedImage) {
+          const reader = new FileReader();
+
+          reader.onloadend = () => {
+            const base64Image = reader.result;
+            localStorage.setItem("profileImage", base64Image);
+
+            alert("프로필 사진 수정이 완료되었습니다!");
+
+            profileImagePreview.src = base64Image;
+          };
+
+          reader.readAsDataURL(selectedImage);
+        }
+      });
+
+      // 사용자명 수정 기능
+      const usernameForm = document.getElementById("usernameForm");
+      const nameElement = document.getElementById("username");
+
+      usernameForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const newUsername = document.getElementById("newUsername").value;
+
+        // 저장된 사용자 정보 가져오기
+        const savedUsername = localStorage.getItem("username");
+        const savedPassword = localStorage.getItem("password");
+
+        // 입력한 사용자명과 비밀번호로 local storage 수정
+        if (savedUsername && savedPassword) {
+          localStorage.setItem("username", newUsername);
+          localStorage.setItem("password", savedPassword);
+          alert("사용자명이 수정되었습니다!");
+          nameElement.textContent = newUsername;
+        } else {
+          alert("로그인이 필요합니다.");
+        }
+
+        usernameForm.reset();
+      });
+
+      const savedUsername = localStorage.getItem("username");
+      // const profileImageURL = localStorage.getItem("profileImageURL");
+      const savedProfileImage = localStorage.getItem("profileImage");
+      const usernameElement = document.getElementById("username");
+
+      if (savedUsername) {
+        nameElement.textContent = savedUsername;
+      } else {
+        nameElement.textContent = "로그인이 필요합니다.";
+      }
+
+      // 프로필 사진 표시
+
+      /*
+      if (profileImageURL) {
+        const profileImage = document.createElement("img");
+        profileImage.src = profileImageURL;
+        document.body.appendChild(profileImage);
+      }
+      */
+
+      if (savedProfileImage) {
+        profileImagePreview.src = savedProfileImage;
+      }
+    </script>
+  </body>
+</html>
