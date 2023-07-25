@@ -33,6 +33,8 @@
             <button class="form_btn">회원가입</button>
           </form>
         </div>
+
+        <!--  오른쪽 -->
         <div class="sign-in-container">
           <form>
             <h1>로그인</h1>
@@ -47,19 +49,17 @@
             <button class="form_btn">시작하기</button>
           </form>
         </div>
-        
-        
-        
+
         <!-- 전환 -->
         <!-- 전환부분 날리고 회원가입 버튼 누르면 회원가입 페이지로 이동하게 만들기 -->
         <div class="overlay-container">
-          <!-- <div class="overlay-left">
+          <div class="overlay-left">
             <h1>Welcome Back</h1>
             <p>
               To keep connected with us please login with your personal info
             </p>
             <button id="signIn" class="overlay_btn">시작하기</button>
-          </div> -->
+          </div>
           <div class="overlay-right">
             <h1>WALLABY</h1>
             <p>왈라비에 오신 것을 환영합니다</p>
@@ -75,22 +75,18 @@
       </div>
     </div>
 
-    
-    
-
     <script>
       // 로그인 버튼
       const signUpBtn = document.getElementById("signUp");
       const signInBtn = document.getElementById("signIn");
       const container = document.querySelector(".container");
 
-      /*
       signUpBtn.addEventListener("click", () => {
         container.classList.add("right-panel-active");
       });
       signInBtn.addEventListener("click", () => {
         container.classList.remove("right-panel-active");
-      });*/
+      });
     </script>
 
     <div id="footer"></div>
@@ -99,7 +95,5 @@
         $("#footer").load("../html/footer.html");
       });
     </script>
-
-    
   </body>
 </html>
