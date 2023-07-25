@@ -14,6 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/login_real.css" />
+    <link rel="stylesheet" href="../CSS/footer.css" />
 
     <title>로그인 화면</title>
   </head>
@@ -21,7 +22,7 @@
     <div class="container">
       <!-- 반응형 이미지 ( 웹에서만 나타남 ) -->
       <div class="img">
-        <img src="../CSS/wallaby_icon.png" alt="왈라비 아이콘" />
+        <img src="../CSS/wallaby_two.png" alt="왈라비 아이콘" />
       </div>
 
       <!-- 로그인 폼 -->
@@ -29,7 +30,7 @@
         <form id="loginForm">
           <img
             class="wallaby_icon"
-            src="../CSS/trash_icon.png"
+            src="../CSS/trash.png"
             alt="쓰레기 아이콘"
           />
 
@@ -142,6 +143,14 @@
             "-webkit-text-fill-color": "transparent",
           });
         });
+      });
+    </script>
+
+    <!-- footer -->
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html");
       });
     </script>
   </body>

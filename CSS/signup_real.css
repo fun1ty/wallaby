@@ -6,8 +6,8 @@
 
 body {
   overflow: hidden;
-  background-image: url("../CSS/backImg_signup.png");
-  background-repeat: repeat;
+  background-image: url("../CSS/backImg_G.png");
+  background-size: 100%;
 }
 
 .container {
@@ -23,6 +23,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  filter: drop-shadow(3px 2px #b1b1b1);
 }
 
 .wallaby_icon {
@@ -132,7 +133,6 @@ form {
   background: none;
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
-  color: #fff;
 }
 
 .input_div.pass {
