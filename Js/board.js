@@ -31,6 +31,7 @@ function displayPost(post) {
   const imageTag = post.img || "";
   const content = post.content;
   const date = post.date;
+  const loginId = post.loginId;
 
   // 이미지가 로드되지 않은 경우에는 이미지 태그를 숨김
   imgDiv.innerHTML = `
@@ -61,15 +62,20 @@ function displayPost(post) {
   //div date 담기
   let dateDiv = document.createElement("div");
   dateDiv.className = "date";
-  dateDiv.innerHTML = `${date}`;
+  dateDiv.innerHTML = ` ${date} `;
+
+  let loginIdDiv = document.createElement("div");
+  loginIdDiv.className = "loginId";
+  loginIdDiv.innerHTML = `${loginId}`;
 
   contentplusdateDiv.appendChild(contentDiv);
+  contentplusdateDiv.appendChild(loginIdDiv);
   contentplusdateDiv.appendChild(dateDiv);
   aElement.appendChild(contentplusdateDiv);
 
   $("#postList").append(listItem);
-  $("li").css({ display: "flex", "align-items": "center" });
-  $("p").css({ display: "block" });
+  $(".loginId").css({ color: "black", "font-size": "14px" });
+  $(".date").css({ color: "grey", "font-size": "13px" });
 }
 
 function getPosts() {
@@ -91,6 +97,7 @@ $("#postList").on("click", ".aElement", function () {
     content: contents,
     img: imageTag,
     date: date,
+    loginId: savedUserId,
   };
   localStorage.setItem("postData", JSON.stringify(postData));
 });
