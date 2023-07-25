@@ -2,6 +2,12 @@
 
 let boardID = "";
 
+//postId - 랜덤문자열 생성
+const random = (length = 8) => {
+  return Math.random().toString(16).substr(2, length);
+};
+console.log(random());
+
 // 저장된 사용자 정보 가져오기
 let savedUserId = localStorage.getItem("id");
 if (savedUserId === null) {
@@ -38,9 +44,9 @@ $(document).ready(function () {
   );
 
   // 댓글을 최신순으로 정렬
-  // currentComments.forEach((commentData) => {
-  //   commentData.comment.reverse(); // 댓글 배열을 뒤집어서 최신순으로 정렬
-  // });
+  currentComments.forEach((commentData) => {
+    commentData.comment.reverse(); // 댓글 배열을 뒤집어서 최신순으로 정렬
+  });
 
   console.log("실행0");
   console.log("currentComments", currentComments);
@@ -61,11 +67,11 @@ $(document).ready(function () {
       liElement.style.justifyContent = "space-evenly";
     });
   });
-  // 좋아요 버튼 클릭 이벤트 추가
-  const likeBtn = liElement.querySelector(".like_btn");
-  likeBtn.addEventListener("click", () => {
-    toggleLike(commentData);
-  });
+  // // 좋아요 버튼 클릭 이벤트 추가
+  // const likeBtn = liElement.querySelector(".like_btn");
+  // likeBtn.addEventListener("click", () => {
+  //   toggleLike(commentData);
+  // });
 
   console.log("배열실행");
   postComment();
