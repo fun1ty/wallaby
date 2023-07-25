@@ -68,6 +68,10 @@ function displayPreviewImage(imageUrl) {
   // li 요소를 이미지 미리보기 영역에 추가
   imageShow.appendChild(liElement);
 
+  $(".filebox").css({
+    display: "none",
+  });
+
   // x버튼 누르면 선택된 이미지 제거
   $(".img_x").click(function () {
     // $(this).parent().find("img").remove();

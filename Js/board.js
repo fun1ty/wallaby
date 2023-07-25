@@ -1,3 +1,5 @@
+let globalContents = "";
+
 $(document).ready(function () {
   let posts = getPosts();
   for (let i = 0; i < posts.length; i++) {
@@ -29,7 +31,8 @@ function displayPost(post) {
 
   // 이미지와 내용이 모두 있는 경우에만 추가
   const imageTag = post.img || "";
-  let content = post.content;
+  const content = post.content;
+  globalContents = content;
   const date = post.date;
   const loginId = post.loginId;
 
@@ -51,6 +54,13 @@ function displayPost(post) {
     img.style.height = "100px";
   });
 
+  //content와 date 담을 div
+  let contentplusdateDiv = document.createElement("div");
+
+  //div contents 담기
+  let contentDiv = document.createElement("div");
+  contentDiv.className = "content";
+
   //작성글이 너무 많을경우 자르기
   const maxLength = 90; // 최대 길이 설정
 
@@ -58,18 +68,11 @@ function displayPost(post) {
     const shortText = content.slice(0, maxLength) + "...";
     console.log("content.length: ", content.length);
     console.log(shortText);
-    content = shortText;
+    contentDiv.innerHTML = `${shortText}`;
   } else {
     console.log(content);
+    contentDiv.innerHTML = `${content}`;
   }
-
-  //content와 date 담을 div
-  let contentplusdateDiv = document.createElement("div");
-
-  //div contents 담기
-  let contentDiv = document.createElement("div");
-  contentDiv.className = "content";
-  contentDiv.innerHTML = `${content}`;
 
   //div date 담기
   let dateDiv = document.createElement("div");
@@ -92,15 +95,15 @@ function displayPost(post) {
   $(".date").css({ color: "grey", "font-size": "13px" });
 }
 
-function getPosts() {
-  var postsJson = localStorage.getItem("posts");
-  return JSON.parse(postsJson) || [];
-}
-
 // 클릭이벤트 발생 시 로컬스토리지에 해당 post데이터 넣기
 $("#postList").on("click", ".aElement", function () {
   let postID = $(this).attr("id");
-  let contents = $(this).find(".content").text();
+  // let contents = $(this).find(".content").text();
+  // let contents = getPosts()
+  //   .find((post) => post.content)
+  //   .text();
+  let contents = globalContents;
+  console.log(contents);
   let image = $(this).find("img").attr("src");
   let loginID = $(this).find(".loginId").text();
   // 이미지 태그를 생성하여 로컬스토리지에 삽입
@@ -116,3 +119,8 @@ $("#postList").on("click", ".aElement", function () {
   };
   localStorage.setItem("postData", JSON.stringify(postData));
 });
+
+function getPosts() {
+  var postsJson = localStorage.getItem("posts");
+  return JSON.parse(postsJson) || [];
+}
