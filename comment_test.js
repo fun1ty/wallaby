@@ -22,9 +22,11 @@ const postComment = () => {
     `;
 
     newCommentLocation.appendChild(newComment);
+
     // 좋아요 버튼 클릭 이벤트 추가
     const likeBtn = newComment.querySelector(".like_btn");
     likeBtn.addEventListener("click", toggleLike);
+
     // comments 스토리지에 저장 (린다리더님의 도움의 손길이..🥺)
     // '[{"boardID":1,"comment":["dd"]},{"boardID":2,"comment":["dd"]}]'
     let comments = localStorage.getItem("comment");
@@ -46,8 +48,11 @@ const postComment = () => {
       selected["comment"].push(commentInput.value);
       localStorage.setItem("comment", JSON.stringify(comments));
     }
+
+    // saveCommentToLocalStorage(commentInput.value);
     commentInput.value = "";
   };
+
   // 사용자 입력 들어올 시, 게시 버튼 활성화
   commentInput.addEventListener("keyup", () => {
     commentInput.value

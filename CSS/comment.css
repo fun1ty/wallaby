@@ -34,9 +34,10 @@ button {
 
 @media (max-width: 390px) and (max-height: 844px) {
   .comment_wrap {
-    margin: 0;
+    margin: 10px;
   }
   #comment_input {
     width: 60%;
+
   }
 }
