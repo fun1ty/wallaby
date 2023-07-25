@@ -9,22 +9,14 @@
 * {
   font-family: "Dovemayo_gothic", sans-serif;
 }
-header {
-  margin: 2%;
-}
-ul {
-  list-style-type: none;
-  display: flex;
+
+.main_img {
+  width: 76vw;
+  height: 70vh;
+  /* width: 80%; */
+  border: 1px solid black;
 }
 
-ul > li {
-  padding: 1%;
-}
-
-.nav > li {
-  padding: 2% 0;
-}
-
-.explain {
-  margin: 2%;
+.main {
+  text-align: center;
 }

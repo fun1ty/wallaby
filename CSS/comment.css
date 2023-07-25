@@ -31,3 +31,9 @@ input {
 .comment_wrap {
   margin: 50px;
 }
+
+@media (max-width: 390px) and (max-height: 844px) {
+  .comment_wrap {
+    margin: 10px;
+  }
+}
