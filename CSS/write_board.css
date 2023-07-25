@@ -1,3 +1,8 @@
+header {
+  font-size: 20px;
+  padding: 0 0 0 10px;
+}
+
 .write {
   width: 100%;
   /* margin: 3%; */
@@ -13,16 +18,14 @@
   padding: 0 0 0 0px;
 }
 .profile {
-  position: absolute;
-  left: 5%;
-  /* z-index: 999; */
+  padding-left: 5%;
 }
 
 #textarea {
   width: 70%;
   border: none;
   resize: none;
-  padding: 0px 0px 0px 7em;
+  padding: 0px 0px 0px 6em;
   overflow: hidden;
   max-height: 40%;
 }
@@ -144,8 +147,6 @@ input[type="file"] {
     top: 40%;
   }
   .profile {
-    position: absolute;
-    bottom: 35%;
-    left: 8%;
+    padding-left: 8%;
   }
 }

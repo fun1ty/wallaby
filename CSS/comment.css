@@ -18,16 +18,9 @@ button {
 }
 
 /* 중앙정렬 */
-
-/* .article_wrap {
-  display: flex;
-  justify-content: center;
+.commentList_ul {
+  font-size: 14px;
 }
-
-#comment_wrap {
-  display: flex;
-  justify-content: center;
-} */
 
 .comment_wrap {
   margin: 50px;
