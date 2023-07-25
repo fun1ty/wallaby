@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./login.html" />
+    <link rel="stylesheet" href="./login_real.html" />
     <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/footer.css" />
     <link rel="stylesheet" href="../CSS/profile.css" />
@@ -19,14 +19,14 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>마이 프로필 수정</title>
+    <title>마이 프로필</title>
 
     <!-- <script>
       $(document).ready(function (myGoogleLogin) {});
     </script> -->
   </head>
 
-  <body onload="myGoogleLogin()">
+  <body>
     <!--  -->
 
     <div id="root">
@@ -37,7 +37,7 @@
         <div class="upload_box">
           <div id="drop_file" class="drag_file">
             <!-- 디폴트 이미지 -->
-            <!-- 1. 얼굴 아이콘일경우 -->
+
             <svg
               class="default_image"
               viewBox="0 0 36 36"
@@ -97,23 +97,8 @@
               </g>
             </svg>
 
-            <!-- 2. 기본 프사 스타일 -->
-            <!-- <img
-              class="default_image"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ0FJpqt8edyJMu1ErnekCuYN7KU5NwlFBpA&usqp=CAU"
-              alt=""
-            /> -->
-
-            <!-- 3. 파일삽입 아이콘 -->
-            <!-- <img
-              src="https://img.icons8.com/pastel-glyph/2x/image-file.png"
-              alt=""
-              class="default_image"
-            />
-            <p class="message">Drag Image</p> -->
-
             <!-- 파일 업로드 시 미리보기 이미지 -->
-            <img src="" alt="미리보기" class="preview" />
+            <img src="" alt="미리보기" class="preview" id="preview" />
           </div>
 
           <!-- 이미지 업로드 버튼 -->
@@ -133,24 +118,13 @@
           <button id="sign_out" onclick="myGoogleLogout()">로그아웃</button>
         </div>
 
-        <!-- 임시버튼! -->
-        <button
-          style="border: solid 1px"
-          onclick="location.href='../html/profile_new.html'"
-        >
-          이미지 저장을 위한 임시버튼입니다 지울 예정!!
-        </button>
-
         <!-- 내 정보 -->
       </div>
 
       <!-- 구글 계정 정보 -->
       <div id="google_Info">
         <h3>계정 정보</h3>
-        <p id="profile">
-          이름 : <br />
-          이메일 :
-        </p>
+        <p id="profile"></p>
       </div>
 
       <!-- 왈라비 계정 정보 -->
@@ -213,46 +187,9 @@
             img.src = reader.result;
             img.style.display = "block";
 
-            // 이미지 로컬 스토리지에 저장하기
-            const imgURL = event.target.result;
-            const imgTag = `<img src="${imgURL}" alt="uploaded image">`;
-            insertHtmlAtCaret(imgTag);
-            $("#img_x").css({
-              display: "block",
-              top: "0%",
-              right: "0%",
-              position: "absolute",
-            });
-
-            localStorage.setItem("IMG", imgURL);
+            const getImg = localStorage.setItem("profileImage", img.src);
+            alert("프로필 사진 수정 완료!");
           };
-        }
-
-        function insertHtmlAtCaret(html) {
-          const sel = window.getSelection();
-          if (sel.getRangeAt && sel.rangeCount) {
-            const range = sel.getRangeAt(0);
-            range.deleteContents();
-
-            const el = document.createElement("div");
-            el.innerHTML = html;
-            const frag = document.createDocumentFragment();
-            let node;
-            let lastNode;
-            while ((node = el.firstChild)) {
-              lastNode = frag.appendChild(node);
-            }
-            range.insertNode(frag);
-
-            // Preserve the selection
-            if (lastNode) {
-              range = range.cloneRange();
-              range.setStartAfter(lastNode);
-              range.collapse(true);
-              sel.removeAllRanges();
-              sel.addRange(range);
-            }
-          }
         }
 
         dropArea.addEventListener("dragenter", highlight, false);
@@ -267,23 +204,23 @@
 
       const dropFile = new DropFile("drop_file", "files");
 
+      // 페이지 로드 시 저장된 이미지를 불러와서 미리보기에 표시
+      window.addEventListener("load", () => {
+        const savedProfileImage = localStorage.getItem("profileImage");
+        const profileImagePreview = document.getElementById("preview");
+
+        if (savedProfileImage) {
+          profileImagePreview.src = savedProfileImage;
+          profileImagePreview.style.display = "block";
+        }
+      });
+
       // 내 구글 계정 정보 로딩
 
+      /*
       function myGoogleLogin() {
-        /*
-        const config = {
-          headers: {
-            Authorization: `${localStorage.getItem("token")}`,
-            // localStorage에 token이 저장되어 있는지 확인하기
-          },
-        };
-        */
 
-        /*
-        let get_token = JSON.parse(localStorage.getItem("token"));
-        console.log("get id token : ", get_token);
-        return get_token !== null;
-        */
+
 
         let get_token = localStorage.getItem("ID");
         let get_name = localStorage.getItem("Name");
@@ -296,10 +233,20 @@
         <h3> 이름 : ${get_name} <br>
             <h3> E-mail : ${get_email}`;
       }
+      */
+
+      /* 계정 정보 */
+      const getName = localStorage.getItem("username");
+      const getId = localStorage.getItem("id");
+      const getPw = localStorage.getItem("password");
+
+      document.getElementById("profile").innerHTML = `
+      <h3> 사용자명 : ${getName} <br>
+        <h3> 아이디 : ${getId}`;
 
       function myGoogleLogout() {
         localStorage.clear();
-        window.location.href = "../html/login.html";
+        window.location.href = "../html/login_real.html";
       }
     </script>
 
