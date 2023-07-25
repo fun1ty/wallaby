@@ -5,7 +5,6 @@ const postComment = () => {
   const commentPostBtn = document.getElementsByClassName("comment_btn")[0];
   // 리더님의 도움이..
   const query = new URLSearchParams(location.search);
-  // console.log(query.get("id"));
   let boardID = query.get("id");
 
   // 댓글 입력시 요소 생성
@@ -31,6 +30,7 @@ const postComment = () => {
     let comments = localStorage.getItem("comment");
     if (comments == "") comments = [];
     else comments = JSON.parse(comments);
+
     let selected = null;
     for (let comment of comments) {
       if (comment["boardID"] == boardID) selected = comment;
@@ -47,8 +47,25 @@ const postComment = () => {
       selected["comment"].push(commentInput.value);
       localStorage.setItem("comment", JSON.stringify(comments));
     }
+    const displayComments = () => {
+      const commentList = document.querySelector(".comment_list");
+      commentList.innerHTML = ""; // 댓글 목록 초기화
+
+      // 로컬 스토리지에서 댓글 데이터 가져오기
+      let comments = localStorage.getItem("comment");
+      if (!comments) return; // 댓글 데이터가 없으면 종료
+
+      comments = JSON.parse(comments);
+
+      // 현재 페이지에 해당하는 댓글 데이터만 필터링
+      const currentComments = comments.filter(
+        (comment) => comment.boardID == boardID
+      );
+    };
     commentInput.value = "";
   };
+  // 화면 로드 시 댓글 목록 출력
+  displayComments();
 
   // 사용자 입력 들어올 시, 게시 버튼 활성화
   commentInput.addEventListener("keyup", () => {
