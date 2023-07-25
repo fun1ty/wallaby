@@ -1,10 +1,11 @@
 $(document).ready(function () {
   let postData = getPostData();
+
   displayPost(postData);
 });
 
 // 게시물 보여주기
-function displayPost(post) {
+function displayPost(post, postData) {
   let postList = document.querySelector("#postList");
 
   // 이미지와 내용이 모두 있는 경우에만 추가
@@ -88,11 +89,6 @@ function displayPost(post) {
   });
   $(".loginIdDiv").css({
     "font-weight": "bold",
-  });
-  $(".user_desc").css({
-    // 댓글 css
-    "text-align": "left",
-    "margin-left": "7%",
   });
 }
 

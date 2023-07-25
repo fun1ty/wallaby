@@ -219,7 +219,7 @@ function addPost(setImageUrl, content, savedUserId) {
   };
   posts.push(post);
   savePosts(posts);
-  displayPost();
+  displayPost(posts);
 
   // 게시물 목록 저장
   function savePosts(posts) {
