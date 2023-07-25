@@ -43,13 +43,27 @@
     <header>
       <!-- <div>왈라비</div> -->
     </header>
+    <div style="display: flex">
+      <div id="calendar"></div>
+      <!-- <div id="board_list"></div> -->
+      <!-- <div id="write_board_main" style="display: none"></div> -->
+      <div id="dateInputContainer" style="display: none">
+        <input
+          type="number"
+          id="dateInput"
+          style="width: 200px; border: transparent"
+          placeholder="오늘의 왈라비 수를 적어보세요!"
+        />
+        <button onclick="addEnteredNumber()">게시</button>
+      </div>
+    </div>
     <div class="main">
-      <img
+      <!-- <img
         class="main_img"
         src="https://plasknew.s3.ap-northeast-2.amazonaws.com/W_mainpage.png"
         srcset="https://plasknew.s3.ap-northeast-2.amazonaws.com/mainH.png 390w"
         alt="메인 이미지"
-      />
+      /> -->
     </div>
 
     <!-- <div class="explain">서비스 설명</div> -->
@@ -58,6 +72,9 @@
     <script>
       $(document).ready(function () {
         $("#headers").load("./html/header.html");
+        $("#calendar").load("../html/calendar.html");
+        // $("#board_list").load("../html/board.html");
+        $("#write_board_main").load("../html/write_board_main.html");
         $("#footer").load("../html/footer.html", function () {
           $("#footer_ul li a.Home").css({
             background:
