@@ -22,13 +22,39 @@ const postComment = () => {
     `;
 
     newCommentLocation.appendChild(newComment);
-
     // 좋아요 버튼 클릭 이벤트 추가
     const likeBtn = newComment.querySelector(".like_btn");
     likeBtn.addEventListener("click", toggleLike);
 
+    const displayExistingComments = (comments) => {
+      const commentListLocation = document.querySelector(".comment_list");
+      //   commentListLocation.innerHTML = ""; // Clear the existing comments
+
+      // Filter comments based on boardID
+      const boardIDComments = comments.filter(
+        (comment) => comment.boardID === boardID
+      );
+
+      // Display each comment in the HTML
+      boardIDComments.forEach((comment) => {
+        const newComment = document.createElement("li");
+        newComment.innerHTML = `
+        <div class="user_desc">
+          <span id="user_id"><b></b></span>
+          <span>${comment.comment}</span>
+          <button class="like_btn"><i class="bi bi-suit-heart"></i></button>
+        </div>
+      `;
+
+        commentListLocation.appendChild(newComment);
+        const likeBtn = newComment.querySelector(".like_btn");
+        likeBtn.addEventListener("click", toggleLike);
+      });
+      displayExistingComments(comments);
+    };
+
     // comments 스토리지에 저장 (린다리더님의 도움의 손길이..🥺)
-    // '[{"boardID":1,"comment":["dd"]},{"boardID":2,"comment":["dd"]}]'
+    // '[{" boardID":1,"comment":["dd"]},{"boardID":2,"comment":["dd"]}]'
     let comments = localStorage.getItem("comment");
     if (comments == "") comments = [];
     else comments = JSON.parse(comments);
@@ -48,8 +74,6 @@ const postComment = () => {
       selected["comment"].push(commentInput.value);
       localStorage.setItem("comment", JSON.stringify(comments));
     }
-
-    // saveCommentToLocalStorage(commentInput.value);
     commentInput.value = "";
   };
 
