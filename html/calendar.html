@@ -7,29 +7,40 @@
   </head>
 
   <body>
-    <div class="calendar_div">
-      <table class="Calendar">
-        <thead>
-          <tr>
-            <td onClick="prevCalendar();" style="cursor: pointer">&#60;</td>
-            <td colspan="5">
-              <span id="calYear"></span>년 <span id="calMonth"></span>월
-            </td>
-            <td onClick="nextCalendar();" style="cursor: pointer">&#62;</td>
-          </tr>
-          <tr>
-            <td>일</td>
-            <td>월</td>
-            <td>화</td>
-            <td>수</td>
-            <td>목</td>
-            <td>금</td>
-            <td>토</td>
-          </tr>
-        </thead>
+    <div class="calendar_wrapper">
+      <div class="calendar_div">
+        <table class="Calendar">
+          <thead>
+            <tr>
+              <td onClick="prevCalendar();" style="cursor: pointer">&#60;</td>
+              <td colspan="5">
+                <span id="calYear"></span>년 <span id="calMonth"></span>월
+              </td>
+              <td onClick="nextCalendar();" style="cursor: pointer">&#62;</td>
+            </tr>
+            <tr>
+              <td>일</td>
+              <td>월</td>
+              <td>화</td>
+              <td>수</td>
+              <td>목</td>
+              <td>금</td>
+              <td>토</td>
+            </tr>
+          </thead>
 
-        <tbody></tbody>
-      </table>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="dateInputContainer" style="display: none">
+      <input
+        type="number"
+        id="dateInput"
+        style="width: 200px; border: transparent"
+        placeholder="오늘의 왈라비 수를 적어보세요!"
+      />
+      <button class="num_submit">게시</button>
     </div>
   </body>
 </html>

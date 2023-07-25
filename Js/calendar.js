@@ -43,11 +43,75 @@ function buildCalendar() {
     let nowColumn = nowRow.insertCell(); // 새 열을 추가하고
 
     let newDIV = document.createElement("p");
-    let newDIV2 = document.createElement("p");
-    // newDIV2.innerText = "으음";
+    let newDIV2 = document.createElement("span");
     newDIV.innerHTML = leftPad(nowDay.getDate()); // 추가한 열에 날짜 입력
     nowColumn.appendChild(newDIV);
-    // nowColumn.appendChild(newDIV2);
+    nowColumn.appendChild(newDIV2);
+
+    document
+      .getElementById("dateInput")
+      .addEventListener("keyup", function (event) {
+        // Check if the key pressed is "Enter" (key code 13)
+        if (event.keyCode === 13) {
+          submitNumber();
+        }
+      });
+
+    document
+      .querySelector(".num_submit")
+      .addEventListener("click", submitNumber);
+
+    function submitNumber() {
+      const dateInput = document.getElementById("dateInput");
+      const inputContent = dateInput.value;
+
+      const selectedDate = parseInt(newDIV.innerText);
+      const todayDate = today.getDate();
+
+      if (selectedDate === todayDate) {
+        if (inputContent.trim() === "") {
+          alert("숫자를 입력해주세요.🥺");
+          return;
+        } else if (inputContent === "0") {
+          const dateInputContainer =
+            document.getElementById("dateInputContainer");
+          dateInputContainer.style.display = "none";
+
+          newDIV2.innerText = "";
+        } else {
+          if (!newDIV2) {
+            newDIV2 = document.createElement("span");
+            nowColumn.appendChild(newDIV2);
+          }
+          newDIV2.innerText = inputContent;
+          const dateInputContainer =
+            document.getElementById("dateInputContainer");
+          dateInputContainer.style.display = "none";
+        }
+      }
+    }
+
+    // document
+    //   .querySelector(".num_submit")
+    //   .addEventListener("click", function () {
+    //     const dateInput = document.getElementById("dateInput");
+    //     const inputContent = dateInput.value;
+
+    //     const selectedDate = parseInt(newDIV.innerText);
+    //     const todayDate = today.getDate();
+
+    //     if (selectedDate === todayDate) {
+    //       // 내용이 안 적혀있을 때
+    //       if (inputContent.trim() === "") {
+    //         alert("숫자를 입력해주세요.🥺");
+    //         return;
+    //       }
+    //       newDIV2.innerText = inputContent;
+    //       const dateInputContainer =
+    //         document.getElementById("dateInputContainer");
+    //       dateInputContainer.style.display = "none";
+    //     }
+    //   });
 
     if (nowDay.getDay() == 6) {
       // 토요일인 경우
@@ -102,40 +166,17 @@ function choiceDate(newDIV) {
   // } else {
   //   writeBoardMain.style.display = "none";
   // }
-}
 
-let selectedDate = new Date(
-  nowMonth.getFullYear(),
-  nowMonth.getMonth(),
-  parseInt(newDIV.innerText)
-);
+  const selectedDate = parseInt(newDIV.innerText);
+  const todayDate = today.getDate();
 
-function addEnteredNumber() {
-  const dataInputContainer = document.getElementById("dataInputContainer");
-  const dateInput = document.getElementById("dateInput");
-  const enteredNumber = parseInt(dateInput.value);
-
-  if (isNaN(enteredNumber) || enteredNumber <= 0) {
-    alert("Please enter a valid number greater than 0.");
-    return;
-  }
-
-  if (target) {
-    const todayDate = new Date().getDate();
-    const selectedDate = parseInt($(target).text());
-
-    if (todayDate === selectedDate) {
-      dataInputContainer.style.display = "";
-      const newDiv = document.createElement("div");
-      newDiv.innerText = enteredNumber;
-      $(target).append(newDiv);
-      dateInput.value = "";
-      r;
-    } else {
-      alert("Please select today's date to add the number.");
-    }
+  // 오늘 날짜 클릭하면
+  if (selectedDate === todayDate) {
+    const dateInputContainer = document.querySelector("#dateInputContainer");
+    dateInputContainer.style.display = "";
   } else {
-    alert("Please select a date first.");
+    const dateInputContainer = document.getElementById("dateInputContainer");
+    dateInputContainer.style.display = "none";
   }
 }
 

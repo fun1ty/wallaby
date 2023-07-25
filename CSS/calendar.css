@@ -1,12 +1,37 @@
+@media (max-width: 390px) and (max-height: 844px) {
+  .calendar_div {
+    margin: auto;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.918);
+  }
+  .calendar_wrapper {
+    flex-direction: column;
+  }
+
+  body {
+    background-image: url("../CSS/backImg_signup.png");
+  }
+}
+
+@media (min-width: 391px) {
+  body {
+    background-image: url("../CSS/backImg_signup.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+.calendar_wrapper {
+  display: flex;
+}
 .calendar_div {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.774);
   height: auto;
   width: 400px;
-  /* margin-left: 450px; */
   padding: 20px;
   margin: 0 auto;
+  margin-top: 50px;
   border-radius: 5px;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   box-shadow: 0px 30px 30px -20px rgba(0, 0, 0, 0.3);
 }
 
@@ -18,18 +43,6 @@ td {
 .Calendar {
   text-align: center;
   /* margin-left: 100px; */
-}
-
-@media (max-width: 990px) {
-  .calendar_div {
-    margin: auto;
-  }
-}
-
-@media (max-width: 390px) and (max-height: 844px) {
-  .calendar_div {
-    margin: auto;
-  }
 }
 
 .Calendar > thead > tr:first-child > td {
@@ -53,18 +66,18 @@ td {
 }
 
 .pastDay {
-  color: lightgray;
+  color: rgb(103, 103, 103);
 }
 
 .today {
-  background-color: #ffbceec5;
+  background-color: #e5a7d5c5;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
 }
 
 .futureDay {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
   cursor: pointer;
 }
 .futureDay:hover {
@@ -77,4 +90,14 @@ td {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+}
+
+#dateInputContainer {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 200px;
+}
+
+.num_submit {
+  align-items: center;
 }
