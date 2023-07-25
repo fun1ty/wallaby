@@ -114,6 +114,16 @@ h3 {
   margin-top: 20px;
 }
 
+@media screen and (max-width: 400px) {
+  .contents {
+    width: 300px;
+  }
+
+  #google_Info {
+    width: 300px;
+  }
+}
+
 /**/
 
 /*
