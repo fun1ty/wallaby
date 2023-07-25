@@ -1,5 +1,6 @@
 li {
   list-style: none;
+  text-align: center;
 }
 
 button {
@@ -38,6 +39,5 @@ button {
   }
   #comment_input {
     width: 60%;
-
   }
 }

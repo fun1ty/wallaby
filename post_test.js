@@ -2,15 +2,11 @@ $(document).ready(function () {
   let postData = getPostData();
   displayPost(postData);
 });
-
 // 게시물 보여주기
 function displayPost(post) {
   let postList = document.querySelector("#postList");
   let listItem = document.createElement("div");
   listItem.className = "listItem";
-
-  let commentsByBoardID = groupCommentsByBoardID();
-
   postList.appendChild(listItem);
   let imgDiv = document.createElement("div");
   imgDiv.className = "imgDiv";
@@ -57,10 +53,6 @@ function displayPost(post) {
   contentDiv.innerHTML = `${content}`;
   contentplusdateDiv.appendChild(contentDiv);
   listItem.appendChild(contentplusdateDiv);
-
-  let comments = getcommentsByBoardID[postItem.boardID] || [];
-  displayComments(comments, listItem);
-
   $("#postList").append(listItem);
   $(".contentplusdateDiv").css({
     "text-align": "center",
@@ -79,62 +71,20 @@ function displayPost(post) {
   $(".loginIdDiv").css({
     "font-weight": "bold",
   });
-}
-const url = new URL(window.location.href);
-console.log(url);
-const boardID = url.searchParams.get("id");
-console.log(boardID);
 
-// 특정 게시물의 댓글 데이터를 local storage에서 가져오기
-function getCommentsByBoardID(boardID) {
-  let comments = localStorage.getItem("comment");
-  if (comments) {
-    comments = JSON.parse(comments);
-    return comments.filter((comment) => comment.boardID === boardID);
+  const url = new URL(window.location.href);
+  console.log(url);
+  const boardID = url.searchParams.get("id");
+  console.log(boardID);
+  if (boardID == id) {
+    let commetList = querySelector("#commentList");
+    let commentDiv = document.createElement("li");
+    commentDiv.className = "commentDiv";
+    commentDiv.innerHTML = `${comment}`;
+    commetList.appendChild(commentDiv);
   }
-  return [];
 }
-
-// 댓글을 boardID 별로 그룹화하여 반환
-function groupCommentsByBoardID() {
-  let comments = localStorage.getItem("comment");
-  let groupedComments = {};
-
-  if (comments) {
-    comments = JSON.parse(comments);
-    comments.forEach((comment) => {
-      const boardID = comment.boardID;
-      if (!groupedComments[boardID]) {
-        groupedComments[boardID] = [];
-      }
-      groupedComments[boardID].push(...comment.comment);
-    });
-  }
-
-  return groupedComments;
-}
-
-// 특정 게시물의 댓글 표시
-function displayComments(comments, listItem) {
-  let commentList = document.createElement("ul");
-  commentList.className = "commentList";
-
-  comments.forEach((comment) => {
-    let commentListItem = document.createElement("li");
-    commentListItem.innerHTML = `
-      <div class="user_desc">
-        <span id="user_id"><b></b></span>
-        <span>${comment}</span>
-        <button class="like_btn"><i class="bi bi-suit-heart"></i></button>
-      </div>
-    `;
-    commentList.appendChild(commentListItem);
-  });
-
-  listItem.appendChild(commentList);
-
-  function getPostData() {
-    var postDataJson = localStorage.getItem("postData");
-    return JSON.parse(postDataJson) || [];
-  }
+function getPostData() {
+  var postDataJson = localStorage.getItem("postData");
+  return JSON.parse(postDataJson) || [];
 }

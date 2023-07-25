@@ -1,0 +1,149 @@
+.write {
+  width: 100%;
+  /* margin: 3%; */
+}
+.write_wrapper {
+  position: relative;
+}
+.menubox {
+  display: flex;
+  align-items: center;
+}
+.menubox > ul > li {
+  padding: 0 0 0 0px;
+}
+.profile {
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  /* z-index: 999; */
+}
+
+#textarea {
+  width: 70%;
+  border: none;
+  resize: none;
+  padding: 0px 0px 0px 7em;
+  overflow: hidden;
+  max-height: 40%;
+}
+.write_btn {
+  display: block;
+  position: absolute;
+  right: 19%;
+}
+#textarea:focus {
+  outline: none;
+}
+.write .text {
+  table-layout: fixed;
+  /* height: 300px; */
+  white-space: pre-line;
+  word-break: break-all;
+}
+.write button {
+  display: flex;
+  justify-content: center;
+}
+
+.write p {
+  text-align: center;
+}
+.menubox > ul {
+  list-style-type: none;
+}
+.button {
+  z-index: 1;
+}
+
+.x {
+  position: absolute;
+  right: 20%;
+  z-index: 2;
+}
+
+.submit {
+  color: grey;
+  font-weight: bold;
+  font-size: 17px;
+  z-index: 99;
+}
+
+.post {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+#image-show {
+  width: 100%;
+  height: 100%;
+}
+
+.filebox {
+  position: absolute;
+  bottom: -50%;
+  left: 4%;
+}
+
+/* 파일첨부 버튼 스타일 변경 */
+input[type="file"] {
+  opacity: 0;
+}
+
+.bi-paperclip {
+  position: absolute;
+  width: 50px;
+  /* bottom: -25%; */
+  height: 30px;
+  transform: rotate(35deg);
+}
+.bi-paperclip :hover {
+  cursor: pointer;
+}
+.post_board {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
+
+/*  미디어쿼리 */
+@media (max-width: 390px) and (max-height: 844px) {
+  .write_wrapper {
+    margin: 3% 0% 0% 0%;
+  }
+  #textarea {
+    width: 80%;
+    padding: 0px 0px 0px 20%;
+    max-height: 10%;
+    font-size: 13px;
+  }
+  #image-show {
+    position: relative;
+    top: 100%;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+  }
+  .menubox > ul {
+    list-style-type: none;
+    padding: 0 10px;
+  }
+  .write_btn {
+    top: 70%;
+    right: 6%;
+  }
+  .filebox {
+    top: 70%;
+    left: 6%;
+  }
+  .x {
+    right: 10%;
+    position: absolute;
+    top: 40%;
+  }
+  .profile {
+    position: absolute;
+    bottom: 35%;
+    left: 8%;
+  }
+}
