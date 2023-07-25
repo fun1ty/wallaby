@@ -3,27 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../CSS/common.css" />
+    <link rel="stylesheet" href="../CSS/signup_real.css" />
+
     <title>회원가입</title>
   </head>
   <body>
-    <h2>회원가입</h2>
-    <form id="signupForm">
-      <!-- 사용자명 -->
+    <div class="container">
+      <!-- 반응형 이미지 ( 웹용 ) -->
+      <div class="img">
+        <img src="../CSS/wallaby_two.png" alt="왈라비 아이콘" />
+      </div>
+
+      <!-- 회원가입 폼 -->
+
+      <div class="signup_content">
+        <form id="signupForm">
+          <img
+            class="wallaby_icon"
+            src="../CSS/trash.png"
+            alt="쓰레기 아이콘"
+          />
+
+          <h2 class="title">
+            왈라비 회원가입<br />
+            <br />
+            Share your trash.
+          </h2>
+
+          <!-- 사용자명 -->
+          <div class="input_div name">
+            <div class="i"></div>
+            <div class="div">
+              <h5>USERNAME</h5>
+              <input type="text" class="input" id="signupUsername" />
+            </div>
+          </div>
+
+          <!-- 아이디 -->
+          <div class="input_div id">
+            <div class="i"></div>
+            <div class="div">
+              <h5>ID</h5>
+              <input type="text" class="input" id="signupId" />
+            </div>
+          </div>
+
+          <!-- 비밀번호 -->
+          <div class="input_div password">
+            <div class="i"></div>
+            <div class="div">
+              <h5>PASSWORD</h5>
+              <input type="password" class="input" id="signupPassword" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn">가입하기</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- <form id="signupForm">
+      
       <label for="signupUsername">사용자 이름:</label>
       <input type="text" id="signupUsername" required />
       <br />
 
-      <!-- 아이디 -->
+      
       <label for="signupId">아이디:</label>
       <input type="text" id="signupId" required />
       <br />
 
-      <!-- 비밀번호 -->
+      
       <label for="signupPassword">비밀번호:</label>
       <input type="password" id="signupPassword" required />
       <br />
       <button type="submit">회원가입</button>
-    </form>
+    </form> -->
 
     <script>
       const signupForm = document.getElementById("signupForm");
@@ -41,6 +99,28 @@
 
         alert("회원가입이 완료되었습니다!");
         window.location.href = "./login_real.html";
+      });
+    </script>
+
+    <!-- media JS  -->
+    <script>
+      const inputs = document.querySelectorAll(".input");
+
+      function addcl() {
+        let parent = this.parentNode.parentNode;
+        parent.classList.add("focus");
+      }
+
+      function remcl() {
+        let parent = this.parentNode.parentNode;
+        if (this.value == "") {
+          parent.classList.remove("focus");
+        }
+      }
+
+      inputs.forEach((input) => {
+        input.addEventListener("focus", addcl);
+        input.addEventListener("blur", remcl);
       });
     </script>
   </body>

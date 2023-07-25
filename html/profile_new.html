@@ -80,7 +80,7 @@
       });
 
       const savedUsername = localStorage.getItem("username");
-      // const profileImageURL = localStorage.getItem("profileImageURL");
+      const profileImageURL = localStorage.getItem("profileImageURL");
       const savedProfileImage = localStorage.getItem("profileImage");
       const usernameElement = document.getElementById("username");
 
@@ -92,13 +92,11 @@
 
       // 프로필 사진 표시
 
-      /*
       if (profileImageURL) {
         const profileImage = document.createElement("img");
         profileImage.src = profileImageURL;
         document.body.appendChild(profileImage);
       }
-      */
 
       if (savedProfileImage) {
         profileImagePreview.src = savedProfileImage;
