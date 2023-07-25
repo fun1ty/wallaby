@@ -82,6 +82,22 @@
       </div>
     </div>
 
+    <!-- footer -->
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        $("#footer").load("../html/footer.html", function () {
+          $("#footer_ul li a.MYPAGE").css({
+            background:
+              "linear-gradient(to left bottom, rgb(229, 56, 162), rgb(47, 201, 231))",
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+          });
+        });
+      });
+    </script>
+
+    //
     <!-- Login JS  -->
     <script>
       const loginForm = document.getElementById("loginForm");
@@ -100,6 +116,11 @@
         if (id === savedUserId && password === savedPassword) {
           alert("로그인에 성공했습니다!");
           window.location.href = "../index.html";
+          console.log("야호");
+
+          const loginJoinLi = document.getElementById("login_join_li");
+          console.log(loginJoinLi);
+          loginJoinLi.style.display = "none";
         } else {
           alert(
             "로그인에 실패했습니다. 사용자 이름과 비밀번호를 확인해주세요."
@@ -108,40 +129,22 @@
       });
     </script>
 
-    <!-- media JS  -->
     <script>
+      <!-- media JS  -->
       const inputs = document.querySelectorAll(".input");
-
       function addcl() {
         let parent = this.parentNode.parentNode;
         parent.classList.add("focus");
       }
-
       function remcl() {
         let parent = this.parentNode.parentNode;
         if (this.value == "") {
           parent.classList.remove("focus");
         }
       }
-
       inputs.forEach((input) => {
         input.addEventListener("focus", addcl);
         input.addEventListener("blur", remcl);
-      });
-    </script>
-
-    <!-- footer -->
-    <div id="footer"></div>
-    <script>
-      $(document).ready(function () {
-        $("#footer").load("../html/footer.html", function () {
-          $("#footer_ul li a.MYPAGE").css({
-            background:
-              "linear-gradient(to left bottom, rgb(229, 56, 162), rgb(47, 201, 231))",
-            "-webkit-background-clip": "text",
-            "-webkit-text-fill-color": "transparent",
-          });
-        });
       });
     </script>
 
