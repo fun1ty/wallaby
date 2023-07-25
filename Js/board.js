@@ -29,7 +29,7 @@ function displayPost(post) {
 
   // 이미지와 내용이 모두 있는 경우에만 추가
   const imageTag = post.img || "";
-  const content = post.content;
+  let content = post.content;
   const date = post.date;
   const loginId = post.loginId;
 
@@ -50,6 +50,18 @@ function displayPost(post) {
     img.style.width = "100px";
     img.style.height = "100px";
   });
+
+  //작성글이 너무 많을경우 자르기
+  const maxLength = 90; // 최대 길이 설정
+
+  if (content.length > maxLength) {
+    const shortText = content.slice(0, maxLength) + "...";
+    console.log("content.length: ", content.length);
+    console.log(shortText);
+    content = shortText;
+  } else {
+    console.log(content);
+  }
 
   //content와 date 담을 div
   let contentplusdateDiv = document.createElement("div");
@@ -74,6 +86,8 @@ function displayPost(post) {
   aElement.appendChild(contentplusdateDiv);
 
   $("#postList").append(listItem);
+
+  //css 동적으로 적용
   $(".loginId").css({ color: "black", "font-size": "14px" });
   $(".date").css({ color: "grey", "font-size": "13px" });
 }
@@ -88,6 +102,7 @@ $("#postList").on("click", ".aElement", function () {
   let postID = $(this).attr("id");
   let contents = $(this).find(".content").text();
   let image = $(this).find("img").attr("src");
+  let loginID = $(this).find(".loginId").text();
   // 이미지 태그를 생성하여 로컬스토리지에 삽입
   const imageTag = `<img src="${image}" alt="postImg" />`;
   let date = $(this).find(".date").text();
@@ -97,7 +112,7 @@ $("#postList").on("click", ".aElement", function () {
     content: contents,
     img: imageTag,
     date: date,
-    loginId: savedUserId,
+    loginId: loginID,
   };
   localStorage.setItem("postData", JSON.stringify(postData));
 });

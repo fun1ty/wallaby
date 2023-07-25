@@ -24,10 +24,11 @@
     <div class="container">
       <div class="post_board">
         <div id="postList"></div>
+        <div id="like_btn"></div>
       </div>
     </div>
     <div id="footer"></div>
-    <div id="like_btn"></div>
+
     <div id="comment"></div>
     <script>
       $(document).ready(function () {
@@ -43,6 +44,10 @@
           $("#comment_wrap").css({
             display: "flex",
             "justify-content": "center",
+          });
+          $(".user_desc").css({
+            "text-align": "left",
+            "margin-left": "7%",
           });
         });
       });
