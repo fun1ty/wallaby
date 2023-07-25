@@ -5,11 +5,7 @@ $(document).ready(function () {
 // 게시물 보여주기
 function displayPost(post) {
   let postList = document.querySelector("#postList");
-  let listItem = document.createElement("div");
-  listItem.className = "listItem";
-  postList.appendChild(listItem);
-  let imgDiv = document.createElement("div");
-  imgDiv.className = "imgDiv";
+
   // 이미지와 내용이 모두 있는 경우에만 추가
   const imageTag = post.img || "";
   const content = post.content;
@@ -26,9 +22,10 @@ function displayPost(post) {
   let dateDiv = document.createElement("div");
   dateDiv.innerHTML = `${date}`;
   dateDiv.className = "dateDiv";
-  loginAndDateDiv.appendChild(dateDiv);
-  listItem.appendChild(loginAndDateDiv);
+  loginAndDateDiv.appendChild(dat
   //이미지 div 추가
+  let imgDiv = document.createElement("div");
+  imgDiv.className = "imgDiv";
   listItem.appendChild(imgDiv);
   // 이미지가 로드되지 않은 경우에는 이미지 태그를 숨김
   imgDiv.innerHTML = `
@@ -54,6 +51,8 @@ function displayPost(post) {
   contentplusdateDiv.appendChild(contentDiv);
   listItem.appendChild(contentplusdateDiv);
   $("#postList").append(listItem);
+
+  //css 동적 적용
   $(".contentplusdateDiv").css({
     "text-align": "center",
   });
@@ -70,6 +69,11 @@ function displayPost(post) {
   });
   $(".loginIdDiv").css({
     "font-weight": "bold",
+  });
+  $(".user_desc").css({
+    // 댓글 css
+    "text-align": "left",
+    "margin-left": "7%",
   });
 }
 function getPostData() {
