@@ -4,72 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../CSS/common.css" />
     <link rel="stylesheet" href="../CSS/login_real.css" />
 
     <title>로그인 화면</title>
   </head>
   <body>
-    <!-- <h2>로그인</h2> -->
+    <div class="container">
+      <!-- 반응형 이미지 ( 웹에서만 나타남 ) -->
+      <div class="img">
+        <img src="../CSS/wallaby_icon.png" alt="왈라비 아이콘" />
+      </div>
 
-    <div class="wrapper">
-      <div class="container">
-        <!-- 왼쪽 로그인 창 -->
-        <div class="login_container">
-          <form id="loginForm">
-            <h1>로그인</h1>
-            <!-- 소셜로그인 아이콘 -->
-            <div class="google_link">
-              <div>
-                <a style="text-decoration: none" href="./google_login.html"
-                  >G+<i class="google_i" aria-hidden="true"></i
-                ></a>
-              </div>
+      <!-- 로그인 폼 -->
+      <div class="login_content">
+        <form id="loginForm">
+          <img
+            class="wallaby_icon"
+            src="../CSS/trash_icon.png"
+            alt="쓰레기 아이콘"
+          />
+
+          <h2 class="title">로그인</h2>
+
+          <!-- 아이디 입력 -->
+          <div class="input_div id">
+            <div class="i"></div>
+
+            <div class="div">
+              <h5>ID</h5>
+              <input type="text" class="input" id="loginUserId" required />
             </div>
-
-            <!-- 일반로그인 창 -->
-            <label for="loginUserId"></label>
-            <input type="text" id="loginUserId" placeholder="Id" required />
-            <br />
-            <label for="loginPassword"></label>
-            <input
-              type="password"
-              id="loginPassword"
-              placeholder="Password"
-              required
-            />
-            <br />
-            <button class="form_btn" type="submit">로그인</button>
-
-            <!-- <button>
-              <a
-                href="./signup_real.html"
-                style="text-decoration: none; color: black"
-                >회원가입</a
-              >
-            </button> -->
-          </form>
-        </div>
-
-        <!-- 오른쪽 창 -->
-        <!-- 회원가입 버튼 -->
-
-        <div class="signup_container">
-          <div class="right_container">
-            <h1>WALLABY</h1>
-            <p>왈라비에 오신 것을 환영합니다</p>
-            <button
-              id="signUp_btn"
-              class="overlay_btn"
-              onclick="location.href='./signup_real.html'"
-            >
-              회원가입
-            </button>
           </div>
-        </div>
+
+          <!-- 패스워드 입력 -->
+
+          <div class="input_div password">
+            <div class="i"></div>
+
+            <div class="div">
+              <h5>PASSWORD</h5>
+              <input type="password" class="input" id="loginPassword" />
+            </div>
+          </div>
+
+          <!-- 로그인 버튼 -->
+          <input type="submit" class="btn" value="login" />
+
+          <!-- 구글 로그인 버튼 -->
+          <button
+            class="google_btn"
+            type="submit"
+            onclick="location.href='../html/google_login.html'"
+          >
+            Google 계정으로 로그인
+          </button>
+
+          <!-- 회원가입 버튼 -->
+          <button
+            class="signup_btn"
+            type="submit"
+            onclick="location.href='../html/signup_real.html'"
+          >
+            회원가입
+          </button>
+          <!-- <input type="submit" class="signup_btn" value="SignUp" /> -->
+        </form>
       </div>
     </div>
 
+    <
+    <!-- Login JS  -->
     <script>
       const loginForm = document.getElementById("loginForm");
 
@@ -92,6 +105,28 @@
             "로그인에 실패했습니다. 사용자 이름과 비밀번호를 확인해주세요."
           );
         }
+      });
+    </script>
+
+    <!-- media JS  -->
+    <script>
+      const inputs = document.querySelectorAll(".input");
+
+      function addcl() {
+        let parent = this.parentNode.parentNode;
+        parent.classList.add("focus");
+      }
+
+      function remcl() {
+        let parent = this.parentNode.parentNode;
+        if (this.value == "") {
+          parent.classList.remove("focus");
+        }
+      }
+
+      inputs.forEach((input) => {
+        input.addEventListener("focus", addcl);
+        input.addEventListener("blur", remcl);
       });
     </script>
 
