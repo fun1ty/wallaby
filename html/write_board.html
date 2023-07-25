@@ -31,7 +31,6 @@
         <div class="body_inner">
           <!-- 파일첨부 버튼 -->
           <div class="filebox">
-            <!-- <label for="file"> -->
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -55,7 +54,7 @@
           </div>
           <!-- 프로필 사진 -->
           <div class="profile">
-            <a href="#">
+            <a href="#" class="profileInfo">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -71,10 +70,10 @@
                   d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.012 4.158c1.858 0 2.96-1.582 2.96-3.99V7.84c0-2.426-1.079-3.996-2.936-3.996-1.864 0-2.965 1.588-2.965 3.996v.328c0 2.42 1.09 3.99 2.941 3.99Z"
                 />
               </svg>
+              <div class="profileId"></div>
             </a>
           </div>
           <div class="menubox">
-            <div></div>
             <button class="x" onclick="xButton();">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +110,6 @@
       </div>
     </div>
     <script src="../Js/write_board.js"></script>
-    <script src="../Js/login.js"></script>
     <div id="footer"></div>
     <script>
       $(document).ready(function () {
