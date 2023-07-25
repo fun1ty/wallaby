@@ -1,6 +1,12 @@
 let setImageUrl;
 let content;
 
+//postId - 랜덤문자열 생성
+const random = (length = 8) => {
+  return Math.random().toString(16).substr(2, length);
+};
+console.log(random());
+
 $(document).ready(function () {
   // textarea 요소의 required 속성과 style 속성을 제거
   $("#textarea").removeAttr("required").removeAttr("style");
@@ -192,12 +198,6 @@ $(".submit").click(function () {
   alert("게시글 등록 완료");
   addPost(setImageUrl, content, savedUserId);
 });
-
-//postId - 랜덤문자열 생성
-const random = (length = 8) => {
-  return Math.random().toString(16).substr(2, length);
-};
-console.log(random());
 
 // 게시물 추가
 function addPost(setImageUrl, content, savedUserId) {
