@@ -1,5 +1,9 @@
+// let globalContents = "";
+let boardID = "";
+
 $(document).ready(function () {
   let posts = getPosts();
+  let query = new URLSearchParams(location.search);
   for (let i = 0; i < posts.length; i++) {
     displayPost(posts[i]);
   }
@@ -96,9 +100,8 @@ function displayPost(post) {
 // 클릭이벤트 발생 시 로컬스토리지에 해당 post데이터 넣기
 $("#postList").on("click", ".aElement", function () {
   let postID = $(this).attr("id");
-  let postData = getPostData(); // 최근에 클릭한 게시물의 데이터를 가져옴
-  // let content = $(this).find(".content").text();
-  let contents = postData.content;
+
+  let contents = $(this).find(".content").text();
   console.log(contents);
   let image = $(this).find("img").attr("src");
   let loginID = $(this).find(".loginId").text();
@@ -106,14 +109,15 @@ $("#postList").on("click", ".aElement", function () {
   const imageTag = `<img src="${image}" alt="postImg" />`;
   let date = $(this).find(".date").text();
 
-  postData = {
+  let postData = {
     id: postID,
     content: contents,
     img: imageTag,
     date: date,
     loginId: loginID,
   };
-  localStorage.setItem("postData", JSON.stringify(postData));
+
+  window.localStorage.setItem("postData", JSON.stringify(postData));
 });
 
 function getPosts() {
