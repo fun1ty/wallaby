@@ -76,6 +76,9 @@ function displayPreviewImage(imageUrl) {
   $(".img_x").click(function () {
     // $(this).parent().find("img").remove();
     $(this).parent().remove();
+    $(".filebox").css({
+      display: "block",
+    });
   });
 
   //x버튼 위치 조정
@@ -128,6 +131,23 @@ function insertHtmlAtCaret(html) {
   }
 }
 
+// 저장된 사용자 정보 가져오기
+let savedUserId = localStorage.getItem("id");
+if (savedUserId === null) {
+  savedUserId = `익명의 왈라비${random()}`;
+}
+
+let profileIdDiv = document.querySelector(".profileId");
+profileIdDiv.innerHTML = `${savedUserId}`;
+$(".profileInfo").css({
+  display: "flex",
+  "text-decoration": "none",
+  color: "black",
+});
+$(".profileId").css({
+  padding: "0 0 0 1em",
+});
+
 // x버튼 눌렀을 때 글삭제
 function xButton() {
   document.getElementById("textarea").value = "";
@@ -170,7 +190,7 @@ $(".submit").click(function () {
     return false;
   }
   alert("게시글 등록 완료");
-  addPost(setImageUrl, content);
+  addPost(setImageUrl, content, savedUserId);
 });
 
 //postId - 랜덤문자열 생성
@@ -180,13 +200,8 @@ const random = (length = 8) => {
 console.log(random());
 
 // 게시물 추가
-function addPost(setImageUrl, content) {
+function addPost(setImageUrl, content, savedUserId) {
   let imageTag = "";
-  // 저장된 사용자 정보 가져오기
-  let savedUserId = localStorage.getItem("id");
-  if (savedUserId === null) {
-    savedUserId = `익명의 왈라비${random()}`;
-  }
 
   if (typeof setImageUrl !== "undefined") {
     //이미지 없을때 엑박으로 나오는거 방지
