@@ -74,7 +74,7 @@ $(document).ready(function () {
   // });
 
   console.log("배열실행");
-  postComment();
+  // postComment();
 });
 
 const postComment = () => {
@@ -85,6 +85,19 @@ const postComment = () => {
 
   // 댓글 입력시 요소 생성
   const addNewComment = () => {
+    //현재 날짜, 시간
+    let now = new Date();
+    let year = now.getFullYear().toString();
+    year = year.substr(2, 4);
+    console.log(year);
+    let month = now.getMonth();
+    let date = now.getDate();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    let settTime = `${year}.${month}.${date} ${hours}:${minutes}:${seconds}`;
+    console.log(settTime);
+
     const newCommentLocation =
       document.getElementsByClassName("commentList_ul")[0];
 
@@ -141,24 +154,30 @@ const postComment = () => {
   };
 
   // 사용자 입력 들어올 시, 게시 버튼 활성화
-  commentInput.addEventListener("keyup", () => {
+  commentInput.addEventListener("keyup", (event) => {
     commentInput.value
       ? (commentPostBtn.style.opacity = "1")
       : (commentPostBtn.style.opacity = "0.1");
     // enter 키로 댓글 입력
-    if (window.event.keyCode === 13 && commentInput.value) {
+    if (event.keyCode === 13 && commentInput.value) {
       addNewComment();
-    } else if (window.event.keyCode === 13) {
-      // alert("댓글이 입력되지 않았습니다 🥺");
+    } else if (event.keyCode === 13 && commentInput.value.trim() === "") {
+      alert("댓글이 입력되지 않았습니다 🥺");
     }
+
+    // if (event.keyCode === 13 && commentInput.value) {
+    //   addNewComment();
+    // } else if (event.keyCode === 13 && commentInput.value === "") {
+    //   alert("댓글이 입력되지 않았습니다 🥺");
+    // }
   });
 
   // 클릭으로 댓글 입력
   commentPostBtn.addEventListener("click", () => {
     if (commentInput.value) {
       addNewComment();
-    } else {
-      // alert("댓글이 입력되지 않았습니다 🥺");
+    } else if (commentInput.value === "") {
+      alert("댓글이 입력되지 않았습니다 🥺");
     }
   });
 
