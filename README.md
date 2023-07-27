@@ -16,6 +16,10 @@
 - PC, Mobile 어디에서나 이용 가능합니다.
 <br/>
 
+> **왈라비 바로가기👉https://splendorous-mermaid-6ff969.netlify.app/**
+<br/>
+<br/>
+
 ## 개발기간
 > **2023.07.18 ~ 2023.07.26 (약 1주)**
 <br/>
@@ -23,4 +27,28 @@
 ## 기술 스택
 🎞 **Front-end** 
 
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
+<span><img src="https://img.shields.io/badge/javascript-FFF?style=for-the-badge&logo=javascript&logoColor=black"></span><span><img src="https://img.shields.io/badge/css-fff?style=for-the-badge&logo=css3&logoColor=black"> </span> <span><img src="https://img.shields.io/badge/html5-fff?style=for-the-badge&logo=html5&logoColor=black"></span>
+
+<br/>
+
+## 주요기능
+
+- 달력에 오늘 버린 쓰레기가 몇 개인지 표시 할수 있어요🌱
+
+|메인페이
+|:------:
+|![image](https://github.com/fun1ty/wallaby/assets/116661333/1a432ebe-9f8d-4cb0-b3c7-97d76a74bd87)
+<br/>
+
+- 쓰레기 사진을 첨부하고 글을 작성할 수 있어요🐾
+  
+|글쓰기 화면
+|:------:
+|![image](https://github.com/fun1ty/wallaby/assets/116661333/8e774226-8c64-4c0a-8172-eacb439c5811)
+<br/>
+
+
+
+
+
+
