@@ -47,5 +47,10 @@
 |![image](https://github.com/fun1ty/wallaby/assets/116661333/8e774226-8c64-4c0a-8172-eacb439c5811)
 <br/>
 
-
+- 작성된 글을 확인할 수 있어요🐾
+  
+|글쓰기 화면
+|:------:
+|![image](https://github.com/fun1ty/wallaby/assets/116661333/7d5330ee-ebb9-45c9-98e6-8acf4b6fd5c0)
+<br/>
 
