@@ -5,7 +5,7 @@
 3. 기술 스택
 4. 주요 기능
 5. 개발팀 소개
-6. 배포
+6. 추가 개발/개선사항
 <br/>
 
 ## 소개
@@ -35,7 +35,7 @@
 
 - 달력에 오늘 버린 쓰레기가 몇 개인지 표시 할수 있어요🌱
 
-|메인페이
+|메인페이지
 |:------:
 |![image](https://github.com/fun1ty/wallaby/assets/116661333/1a432ebe-9f8d-4cb0-b3c7-97d76a74bd87)
 <br/>
@@ -49,8 +49,25 @@
 
 - 작성된 글을 확인할 수 있어요🐾
   
-|글쓰기 화면
+|피드 화면
 |:------:
-|![image](https://github.com/fun1ty/wallaby/assets/116661333/7d5330ee-ebb9-45c9-98e6-8acf4b6fd5c0)
+|![image](https://github.com/fun1ty/wallaby/assets/116661333/79e00c24-dcbe-4b74-ad52-2f160f197cc6)
 <br/>
 
+## 개발팀 소개
+
+|서정현|김미리|김보영   
+|:------:|:------:|:------:
+|![image](https://github.com/fun1ty/wallaby/assets/116661333/09fcc8ea-151e-475a-9ec3-f30b053bbd1c)|![image](https://github.com/fun1ty/wallaby/assets/116661333/d993fcb1-ce93-4124-81d6-c363b83d1dde)|![image](https://github.com/fun1ty/wallaby/assets/116661333/afdb7fde-693a-4f35-a6c2-88a6d6be8fef) 
+|회원가입 <br/>일반 로그인 및 소셜로그인<br/> 마이페이지|글쓰기<br/> 피드목록<br/> 상세페이지 댓글출력 |댓글추가+좋아요<br/> 헤더/푸터<br/> 메인 페이지 달력
+<br/>
+
+## 추가 개발/개선사항
+
+- UI/UX를 사용자 중심으로 개선
+- 서비스의 컨셉을 좀 더 명확하게 알수 있도록 개선하기
+- DB 연동하기
+- 글쓰기 시 카테고리 추가 및 상단 네비바에 카테고리 선택 기능
+- 피드에서 다중으로 첨부된 이미지 보여줄수 있게 개선
+- 달력에 카운팅 된 쓰레기 수에 대한 통계기능 추가
+- 어뷰징 유저에 대한 패널티 기능 추가 
